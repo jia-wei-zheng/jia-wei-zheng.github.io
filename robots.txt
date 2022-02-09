@@ -1,0 +1,3 @@
+User-agent: *
+
+Sitemap: https://jw2heng.github.io/sitemap.xml
