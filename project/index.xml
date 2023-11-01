@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects | Jiawei Zheng</title>
-    <link>https://jw2heng.github.io/project/</link>
-      <atom:link href="https://jw2heng.github.io/project/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://jia-wei-zheng.github.io/project/</link>
+      <atom:link href="https://jia-wei-zheng.github.io/project/index.xml" rel="self" type="application/rss+xml" />
     <description>Projects</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2023 Jiawei Zheng</copyright><lastBuildDate>Mon, 27 Apr 2020 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://jw2heng.github.io/media/icon_hu88e86d5999bd18f15f6d00205cac0ab3_27282_512x512_fill_lanczos_center_3.png</url>
+      <url>https://jia-wei-zheng.github.io/media/icon_hu88e86d5999bd18f15f6d00205cac0ab3_27282_512x512_fill_lanczos_center_3.png</url>
       <title>Projects</title>
-      <link>https://jw2heng.github.io/project/</link>
+      <link>https://jia-wei-zheng.github.io/project/</link>
     </image>
     
     <item>
       <title>Advanced Care &amp; Research Center (ACRC)</title>
-      <link>https://jw2heng.github.io/project/acrc/</link>
+      <link>https://jia-wei-zheng.github.io/project/acrc/</link>
       <pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>https://jw2heng.github.io/project/acrc/</guid>
+      <guid>https://jia-wei-zheng.github.io/project/acrc/</guid>
       <description>&lt;p&gt;This research programme will develop practical, care-driven technologies that are fit for people in later life. In particular, this means exploring and developing data-driven IoT platforms that can produce accurate data about instant events (e.g. vital signs and serious incidents such as falls), short-term activities (e.g. those of daily living) and long-term pursuits (e.g. physical and mental activities over weeks and months) in order to extract (predictive) information and patterns that can be used, among other things, for effective interventions and the prevention of adverse outcomes.&lt;/p&gt;
 &lt;p&gt;This will develop digitised models of care to allow for meaningful understanding and decision support. This includes models that capture knowledge about care pathways, guidelines, and practices, as well as individual needs and circumstances. These will be used to inform the new models of care work package. Explainable models using AI on existing data to produce alerts and insights towards meaningful interventions. Finally, we will use these digital models to provide predictive performance measures under different circumstances and ageing population trends.&lt;/p&gt;
 </description>
@@ -24,9 +24,9 @@
     
     <item>
       <title>Trusted and controlled sharing technology and system of multi-domain IoT based on blockchain</title>
-      <link>https://jw2heng.github.io/project/blockchain-province/</link>
+      <link>https://jia-wei-zheng.github.io/project/blockchain-province/</link>
       <pubDate>Sat, 27 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>https://jw2heng.github.io/project/blockchain-province/</guid>
+      <guid>https://jia-wei-zheng.github.io/project/blockchain-province/</guid>
       <description>&lt;p&gt;The aim of this research programme is below:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -44,9 +44,9 @@
     
     <item>
       <title>Intelligent service transaction operation mechanism and performance optimization technology</title>
-      <link>https://jw2heng.github.io/project/blockchain-national/</link>
+      <link>https://jia-wei-zheng.github.io/project/blockchain-national/</link>
       <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
-      <guid>https://jw2heng.github.io/project/blockchain-national/</guid>
+      <guid>https://jia-wei-zheng.github.io/project/blockchain-national/</guid>
       <description>&lt;p&gt;This project aims to develope a intelligent service trasaction system based on crowd sourcing and blockchain technologiee so that it can meet the requirements of high performance and supervision.&lt;/p&gt;
 &lt;p&gt;In particular, we develope a service-oriented and high-precision service publishing and composition system. This enables end-users (e.g., individuals and companies) to publish their services and data in the blockchain as digital asset. This could also provide high-precision service recommendation and service composition regarding to the custimized functions.&lt;/p&gt;
 &lt;p&gt;We also investigate the approaches to improve the performance of blockchain by optimizing the consensus algorithms and sharding techniques.&lt;/p&gt;
@@ -56,9 +56,9 @@
     
     <item>
       <title>Comprehensive IoT access and service delivery platform and demonstration application</title>
-      <link>https://jw2heng.github.io/project/iot-province/</link>
+      <link>https://jia-wei-zheng.github.io/project/iot-province/</link>
       <pubDate>Thu, 27 Apr 2017 00:00:00 +0000</pubDate>
-      <guid>https://jw2heng.github.io/project/iot-province/</guid>
+      <guid>https://jia-wei-zheng.github.io/project/iot-province/</guid>
       <description>&lt;p&gt;This research programme aims to realize these research goals:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;

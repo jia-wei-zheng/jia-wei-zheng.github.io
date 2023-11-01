@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jiawei Zheng</title>
-    <link>https://jw2heng.github.io/</link>
-      <atom:link href="https://jw2heng.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://jia-wei-zheng.github.io/</link>
+      <atom:link href="https://jia-wei-zheng.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>Jiawei Zheng</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2023 Jiawei Zheng</copyright><lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://jw2heng.github.io/media/icon_hu88e86d5999bd18f15f6d00205cac0ab3_27282_512x512_fill_lanczos_center_3.png</url>
+      <url>https://jia-wei-zheng.github.io/media/icon_hu88e86d5999bd18f15f6d00205cac0ab3_27282_512x512_fill_lanczos_center_3.png</url>
       <title>Jiawei Zheng</title>
-      <link>https://jw2heng.github.io/</link>
+      <link>https://jia-wei-zheng.github.io/</link>
     </image>
     
     <item>
       <title>Example Talk</title>
-      <link>https://jw2heng.github.io/talk/example-talk/</link>
+      <link>https://jia-wei-zheng.github.io/talk/example-talk/</link>
       <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
-      <guid>https://jw2heng.github.io/talk/example-talk/</guid>
+      <guid>https://jia-wei-zheng.github.io/talk/example-talk/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
@@ -33,18 +33,34 @@
     </item>
     
     <item>
+      <title>Alignment-based conformance checking over probabilistic events</title>
+      <link>https://jia-wei-zheng.github.io/publication/hicss/</link>
+      <pubDate>Fri, 18 Aug 2023 21:45:14 +0000</pubDate>
+      <guid>https://jia-wei-zheng.github.io/publication/hicss/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Predictive Behavioural Monitoring and Deviation Detection in Activities of Daily Living of Older Adults</title>
-      <link>https://jw2heng.github.io/publication/healthinf/</link>
+      <link>https://jia-wei-zheng.github.io/publication/healthinf/</link>
       <pubDate>Thu, 20 Jan 2022 21:45:14 +0000</pubDate>
-      <guid>https://jw2heng.github.io/publication/healthinf/</guid>
+      <guid>https://jia-wei-zheng.github.io/publication/healthinf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Our paper “Alignment-based conformance checking over probabilistic events” is accepted by Hawaii International Conference on System Science (HICSS, ranked A).</title>
+      <link>https://jia-wei-zheng.github.io/post/hicss/index/</link>
+      <pubDate>Wed, 01 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://jia-wei-zheng.github.io/post/hicss/index/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Talk in DigiFest2021: Proactive health monitoring based on Activities of Daily Living</title>
-      <link>https://jw2heng.github.io/post/digifest2021/</link>
+      <link>https://jia-wei-zheng.github.io/post/digifest2021/</link>
       <pubDate>Wed, 01 Dec 2021 00:00:00 +0000</pubDate>
-      <guid>https://jw2heng.github.io/post/digifest2021/</guid>
+      <guid>https://jia-wei-zheng.github.io/post/digifest2021/</guid>
       <description>&lt;p&gt;
 
 
@@ -71,33 +87,33 @@
     
     <item>
       <title>MicrothingsChain: Blockchain-based Controlled Data Sharing Platform in Multi-domain IoT</title>
-      <link>https://jw2heng.github.io/publication/jnana/</link>
+      <link>https://jia-wei-zheng.github.io/publication/jnana/</link>
       <pubDate>Fri, 15 Jan 2021 20:34:29 +0000</pubDate>
-      <guid>https://jw2heng.github.io/publication/jnana/</guid>
+      <guid>https://jia-wei-zheng.github.io/publication/jnana/</guid>
       <description></description>
     </item>
     
     <item>
       <title>BC-RAN: Cloud radio access network enabled by blockchain for 5G</title>
-      <link>https://jw2heng.github.io/publication/bc-ran-cloud-radio-access-network-enabled-by-blockchain-for-5g/</link>
+      <link>https://jia-wei-zheng.github.io/publication/bc-ran-cloud-radio-access-network-enabled-by-blockchain-for-5g/</link>
       <pubDate>Thu, 01 Oct 2020 20:30:55 +0000</pubDate>
-      <guid>https://jw2heng.github.io/publication/bc-ran-cloud-radio-access-network-enabled-by-blockchain-for-5g/</guid>
+      <guid>https://jia-wei-zheng.github.io/publication/bc-ran-cloud-radio-access-network-enabled-by-blockchain-for-5g/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Decentralized and Secure Cross-Domain Data Sharing Scheme Based on Blockchain for Application-Centric IoT</title>
-      <link>https://jw2heng.github.io/publication/jise/</link>
+      <link>https://jia-wei-zheng.github.io/publication/jise/</link>
       <pubDate>Wed, 01 Jul 2020 20:31:45 +0000</pubDate>
-      <guid>https://jw2heng.github.io/publication/jise/</guid>
+      <guid>https://jia-wei-zheng.github.io/publication/jise/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Advanced Care &amp; Research Center (ACRC)</title>
-      <link>https://jw2heng.github.io/project/acrc/</link>
+      <link>https://jia-wei-zheng.github.io/project/acrc/</link>
       <pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>https://jw2heng.github.io/project/acrc/</guid>
+      <guid>https://jia-wei-zheng.github.io/project/acrc/</guid>
       <description>&lt;p&gt;This research programme will develop practical, care-driven technologies that are fit for people in later life. In particular, this means exploring and developing data-driven IoT platforms that can produce accurate data about instant events (e.g. vital signs and serious incidents such as falls), short-term activities (e.g. those of daily living) and long-term pursuits (e.g. physical and mental activities over weeks and months) in order to extract (predictive) information and patterns that can be used, among other things, for effective interventions and the prevention of adverse outcomes.&lt;/p&gt;
 &lt;p&gt;This will develop digitised models of care to allow for meaningful understanding and decision support. This includes models that capture knowledge about care pathways, guidelines, and practices, as well as individual needs and circumstances. These will be used to inform the new models of care work package. Explainable models using AI on existing data to produce alerts and insights towards meaningful interventions. Finally, we will use these digital models to provide predictive performance measures under different circumstances and ageing population trends.&lt;/p&gt;
 </description>
@@ -105,49 +121,49 @@
     
     <item>
       <title>Partial-Equivalence: A Semantic Strategy in Service Composition and Modeling</title>
-      <link>https://jw2heng.github.io/publication/partial-equivalence-a-semantic-strategy-in-service-composition-and-modeling/</link>
+      <link>https://jia-wei-zheng.github.io/publication/partial-equivalence-a-semantic-strategy-in-service-composition-and-modeling/</link>
       <pubDate>Thu, 10 Oct 2019 20:35:51 +0000</pubDate>
-      <guid>https://jw2heng.github.io/publication/partial-equivalence-a-semantic-strategy-in-service-composition-and-modeling/</guid>
+      <guid>https://jia-wei-zheng.github.io/publication/partial-equivalence-a-semantic-strategy-in-service-composition-and-modeling/</guid>
       <description></description>
     </item>
     
     <item>
       <title>QoS-Aware Path Finding and Load Balancing in Service-Composition</title>
-      <link>https://jw2heng.github.io/publication/qos-aware-path-finding-and-load-balancing-in-service-composition/</link>
+      <link>https://jia-wei-zheng.github.io/publication/qos-aware-path-finding-and-load-balancing-in-service-composition/</link>
       <pubDate>Thu, 10 Oct 2019 20:33:03 +0000</pubDate>
-      <guid>https://jw2heng.github.io/publication/qos-aware-path-finding-and-load-balancing-in-service-composition/</guid>
+      <guid>https://jia-wei-zheng.github.io/publication/qos-aware-path-finding-and-load-balancing-in-service-composition/</guid>
       <description></description>
     </item>
     
     <item>
       <title>An Abnormal Transaction Detection Mechanim on Bitcoin</title>
-      <link>https://jw2heng.github.io/publication/an-abnormal-transaction-detection-mechanim-on-bitcoin/</link>
+      <link>https://jia-wei-zheng.github.io/publication/an-abnormal-transaction-detection-mechanim-on-bitcoin/</link>
       <pubDate>Thu, 10 Oct 2019 20:28:46 +0000</pubDate>
-      <guid>https://jw2heng.github.io/publication/an-abnormal-transaction-detection-mechanim-on-bitcoin/</guid>
+      <guid>https://jia-wei-zheng.github.io/publication/an-abnormal-transaction-detection-mechanim-on-bitcoin/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Trust-PBFT: a PeerTrust-based Practical Byzantine Consensus Algorithm</title>
-      <link>https://jw2heng.github.io/publication/trust-pbft-a-peertrust-based-practical-byzantine-consensus-algorithm/</link>
+      <link>https://jia-wei-zheng.github.io/publication/trust-pbft-a-peertrust-based-practical-byzantine-consensus-algorithm/</link>
       <pubDate>Thu, 10 Oct 2019 20:26:25 +0000</pubDate>
-      <guid>https://jw2heng.github.io/publication/trust-pbft-a-peertrust-based-practical-byzantine-consensus-algorithm/</guid>
+      <guid>https://jia-wei-zheng.github.io/publication/trust-pbft-a-peertrust-based-practical-byzantine-consensus-algorithm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Blockchain-based secure digital asset exchange scheme with QoS-aware incentive mechanism</title>
-      <link>https://jw2heng.github.io/publication/blockchain-based-secure-digital-asset-exchange-scheme-with-qos-aware-incentive-mechanism/</link>
+      <link>https://jia-wei-zheng.github.io/publication/blockchain-based-secure-digital-asset-exchange-scheme-with-qos-aware-incentive-mechanism/</link>
       <pubDate>Sun, 26 May 2019 20:30:11 +0000</pubDate>
-      <guid>https://jw2heng.github.io/publication/blockchain-based-secure-digital-asset-exchange-scheme-with-qos-aware-incentive-mechanism/</guid>
+      <guid>https://jia-wei-zheng.github.io/publication/blockchain-based-secure-digital-asset-exchange-scheme-with-qos-aware-incentive-mechanism/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Trusted and controlled sharing technology and system of multi-domain IoT based on blockchain</title>
-      <link>https://jw2heng.github.io/project/blockchain-province/</link>
+      <link>https://jia-wei-zheng.github.io/project/blockchain-province/</link>
       <pubDate>Sat, 27 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>https://jw2heng.github.io/project/blockchain-province/</guid>
+      <guid>https://jia-wei-zheng.github.io/project/blockchain-province/</guid>
       <description>&lt;p&gt;The aim of this research programme is below:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -165,9 +181,9 @@
     
     <item>
       <title>Slides</title>
-      <link>https://jw2heng.github.io/slides/example/</link>
+      <link>https://jia-wei-zheng.github.io/slides/example/</link>
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
-      <guid>https://jw2heng.github.io/slides/example/</guid>
+      <guid>https://jia-wei-zheng.github.io/slides/example/</guid>
       <description>&lt;h1 id=&#34;create-slides-in-markdown-with-wowchemy&#34;&gt;Create slides in Markdown with Wowchemy&lt;/h1&gt;
 &lt;p&gt;&lt;a href=&#34;https://wowchemy.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Wowchemy&lt;/a&gt; | &lt;a href=&#34;https://owchemy.com/docs/managing-content/#create-slides&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Documentation&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
@@ -294,17 +310,17 @@ $$&lt;/p&gt;
     
     <item>
       <title>MicrothingsChain: Edge Computing and Decentralized IoT Architecture Based on Blockchain for Cross-Domain Data Sharing </title>
-      <link>https://jw2heng.github.io/publication/microthingchain/</link>
+      <link>https://jia-wei-zheng.github.io/publication/microthingchain/</link>
       <pubDate>Fri, 12 Oct 2018 00:00:00 +0000</pubDate>
-      <guid>https://jw2heng.github.io/publication/microthingchain/</guid>
+      <guid>https://jia-wei-zheng.github.io/publication/microthingchain/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Intelligent service transaction operation mechanism and performance optimization technology</title>
-      <link>https://jw2heng.github.io/project/blockchain-national/</link>
+      <link>https://jia-wei-zheng.github.io/project/blockchain-national/</link>
       <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
-      <guid>https://jw2heng.github.io/project/blockchain-national/</guid>
+      <guid>https://jia-wei-zheng.github.io/project/blockchain-national/</guid>
       <description>&lt;p&gt;This project aims to develope a intelligent service trasaction system based on crowd sourcing and blockchain technologiee so that it can meet the requirements of high performance and supervision.&lt;/p&gt;
 &lt;p&gt;In particular, we develope a service-oriented and high-precision service publishing and composition system. This enables end-users (e.g., individuals and companies) to publish their services and data in the blockchain as digital asset. This could also provide high-precision service recommendation and service composition regarding to the custimized functions.&lt;/p&gt;
 &lt;p&gt;We also investigate the approaches to improve the performance of blockchain by optimizing the consensus algorithms and sharding techniques.&lt;/p&gt;
@@ -314,9 +330,9 @@ $$&lt;/p&gt;
     
     <item>
       <title>Comprehensive IoT access and service delivery platform and demonstration application</title>
-      <link>https://jw2heng.github.io/project/iot-province/</link>
+      <link>https://jia-wei-zheng.github.io/project/iot-province/</link>
       <pubDate>Thu, 27 Apr 2017 00:00:00 +0000</pubDate>
-      <guid>https://jw2heng.github.io/project/iot-province/</guid>
+      <guid>https://jia-wei-zheng.github.io/project/iot-province/</guid>
       <description>&lt;p&gt;This research programme aims to realize these research goals:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -334,9 +350,9 @@ $$&lt;/p&gt;
     
     <item>
       <title></title>
-      <link>https://jw2heng.github.io/admin/config.yml</link>
+      <link>https://jia-wei-zheng.github.io/admin/config.yml</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://jw2heng.github.io/admin/config.yml</guid>
+      <guid>https://jia-wei-zheng.github.io/admin/config.yml</guid>
       <description></description>
     </item>
     

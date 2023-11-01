@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>IoT | Jiawei Zheng</title>
-    <link>https://jw2heng.github.io/tag/iot/</link>
-      <atom:link href="https://jw2heng.github.io/tag/iot/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://jia-wei-zheng.github.io/tag/iot/</link>
+      <atom:link href="https://jia-wei-zheng.github.io/tag/iot/index.xml" rel="self" type="application/rss+xml" />
     <description>IoT</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2023 Jiawei Zheng</copyright><lastBuildDate>Sat, 27 Apr 2019 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://jw2heng.github.io/media/icon_hu88e86d5999bd18f15f6d00205cac0ab3_27282_512x512_fill_lanczos_center_3.png</url>
+      <url>https://jia-wei-zheng.github.io/media/icon_hu88e86d5999bd18f15f6d00205cac0ab3_27282_512x512_fill_lanczos_center_3.png</url>
       <title>IoT</title>
-      <link>https://jw2heng.github.io/tag/iot/</link>
+      <link>https://jia-wei-zheng.github.io/tag/iot/</link>
     </image>
     
     <item>
       <title>Trusted and controlled sharing technology and system of multi-domain IoT based on blockchain</title>
-      <link>https://jw2heng.github.io/project/blockchain-province/</link>
+      <link>https://jia-wei-zheng.github.io/project/blockchain-province/</link>
       <pubDate>Sat, 27 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>https://jw2heng.github.io/project/blockchain-province/</guid>
+      <guid>https://jia-wei-zheng.github.io/project/blockchain-province/</guid>
       <description>&lt;p&gt;The aim of this research programme is below:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -34,9 +34,9 @@
     
     <item>
       <title>Comprehensive IoT access and service delivery platform and demonstration application</title>
-      <link>https://jw2heng.github.io/project/iot-province/</link>
+      <link>https://jia-wei-zheng.github.io/project/iot-province/</link>
       <pubDate>Thu, 27 Apr 2017 00:00:00 +0000</pubDate>
-      <guid>https://jw2heng.github.io/project/iot-province/</guid>
+      <guid>https://jia-wei-zheng.github.io/project/iot-province/</guid>
       <description>&lt;p&gt;This research programme aims to realize these research goals:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
