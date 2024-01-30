@@ -4,17 +4,11 @@
   
   
   <url>
-    <loc>https://jia-wei-zheng.github.io/talk/example-talk/</loc><lastmod>2030-06-01T13:00:00+00:00</lastmod></url>
-  <url>
-    <loc>https://jia-wei-zheng.github.io/</loc><lastmod>2030-06-01T13:00:00+00:00</lastmod></url>
-  <url>
-    <loc>https://jia-wei-zheng.github.io/event/</loc><lastmod>2030-06-01T13:00:00+00:00</lastmod></url>
-  <url>
     <loc>https://jia-wei-zheng.github.io/publication-type/1/</loc><lastmod>2023-08-18T21:45:14+00:00</lastmod></url>
   <url>
     <loc>https://jia-wei-zheng.github.io/publication/hicss/</loc><lastmod>2023-08-18T21:45:14+00:00</lastmod></url>
   <url>
-    <loc></loc><lastmod>2023-08-18T21:45:14+00:00</lastmod></url>
+    <loc>https://jia-wei-zheng.github.io/</loc><lastmod>2023-08-18T21:45:14+00:00</lastmod></url>
   <url>
     <loc>https://jia-wei-zheng.github.io/publication_types/</loc><lastmod>2023-08-18T21:45:14+00:00</lastmod></url>
   <url>
@@ -34,19 +28,9 @@
   <url>
     <loc>https://jia-wei-zheng.github.io/publication-type/2/</loc><lastmod>2021-01-15T20:34:29+00:00</lastmod></url>
   <url>
-    <loc></loc><lastmod>2021-01-15T20:34:29+00:00</lastmod></url>
-  <url>
     <loc>https://jia-wei-zheng.github.io/publication/jnana/</loc><lastmod>2021-01-15T20:34:29+00:00</lastmod></url>
   <url>
-    <loc></loc><lastmod>2021-01-15T20:34:29+00:00</lastmod></url>
-  <url>
-    <loc></loc><lastmod>2021-01-15T20:34:29+00:00</lastmod></url>
-  <url>
-    <loc></loc><lastmod>2021-01-15T20:34:29+00:00</lastmod></url>
-  <url>
     <loc>https://jia-wei-zheng.github.io/publication/bc-ran-cloud-radio-access-network-enabled-by-blockchain-for-5g/</loc><lastmod>2020-10-01T20:30:55+00:00</lastmod></url>
-  <url>
-    <loc></loc><lastmod>2020-10-01T20:30:55+00:00</lastmod></url>
   <url>
     <loc>https://jia-wei-zheng.github.io/publication/jise/</loc><lastmod>2020-07-01T20:31:45+00:00</lastmod></url>
   <url>
@@ -58,25 +42,9 @@
   <url>
     <loc>https://jia-wei-zheng.github.io/publication/partial-equivalence-a-semantic-strategy-in-service-composition-and-modeling/</loc><lastmod>2019-10-10T20:35:51+00:00</lastmod></url>
   <url>
-    <loc></loc><lastmod>2019-10-10T20:35:51+00:00</lastmod></url>
-  <url>
-    <loc></loc><lastmod>2019-10-10T20:35:51+00:00</lastmod></url>
-  <url>
-    <loc></loc><lastmod>2019-10-10T20:35:51+00:00</lastmod></url>
-  <url>
-    <loc></loc><lastmod>2019-10-10T20:33:03+00:00</lastmod></url>
-  <url>
     <loc>https://jia-wei-zheng.github.io/publication/qos-aware-path-finding-and-load-balancing-in-service-composition/</loc><lastmod>2019-10-10T20:33:03+00:00</lastmod></url>
   <url>
     <loc>https://jia-wei-zheng.github.io/publication/an-abnormal-transaction-detection-mechanim-on-bitcoin/</loc><lastmod>2019-10-10T20:28:46+00:00</lastmod></url>
-  <url>
-    <loc></loc><lastmod>2019-10-10T20:28:46+00:00</lastmod></url>
-  <url>
-    <loc></loc><lastmod>2019-10-10T20:28:46+00:00</lastmod></url>
-  <url>
-    <loc></loc><lastmod>2019-10-10T20:28:46+00:00</lastmod></url>
-  <url>
-    <loc></loc><lastmod>2019-10-10T20:28:46+00:00</lastmod></url>
   <url>
     <loc>https://jia-wei-zheng.github.io/publication/trust-pbft-a-peertrust-based-practical-byzantine-consensus-algorithm/</loc><lastmod>2019-10-10T20:26:25+00:00</lastmod></url>
   <url>
@@ -88,15 +56,7 @@
   <url>
     <loc>https://jia-wei-zheng.github.io/project/blockchain-province/</loc><lastmod>2019-04-27T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://jia-wei-zheng.github.io/slides/</loc><lastmod>2019-02-05T00:00:00+00:00</lastmod></url>
-  <url>
-    <loc>https://jia-wei-zheng.github.io/slides/example/</loc><lastmod>2019-02-05T00:00:00+00:00</lastmod></url>
-  <url>
-    <loc></loc><lastmod>2018-10-12T00:00:00+00:00</lastmod></url>
-  <url>
     <loc>https://jia-wei-zheng.github.io/publication/microthingchain/</loc><lastmod>2018-10-12T00:00:00+00:00</lastmod></url>
-  <url>
-    <loc></loc><lastmod>2018-10-12T00:00:00+00:00</lastmod></url>
   <url>
     <loc>https://jia-wei-zheng.github.io/project/blockchain-national/</loc><lastmod>2018-04-27T00:00:00+00:00</lastmod></url>
   <url>
@@ -104,4 +64,6 @@
   <url>
     <loc>https://jia-wei-zheng.github.io/admin/</loc></url>
   <url>
-    <loc>https://jia-wei-zheng.github.io/categories/</loc></url></urlset>
+    <loc>https://jia-wei-zheng.github.io/categories/</loc></url>
+  <url>
+    <loc>https://jia-wei-zheng.github.io/event/</loc></url></urlset>
