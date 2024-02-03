@@ -257,6 +257,45 @@
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0WHK6LXPKM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'G-0WHK6LXPKM', {});
+  gtag('set', {'cookie_flags': 'SameSite=None;Secure'});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
   
 
   
@@ -1113,7 +1152,11 @@
     <div class="media-body">
       <h5 class="card-title"><a href="https://jia-wei-zheng.github.io/">Jiawei Zheng</a></h5>
       <h6 class="card-subtitle">PhD student</h6>
+<<<<<<< Updated upstream
+      <p class="card-text">My research interests include Artifical Intelligence, Process Mining, Conformance checking under uncertainty</p>
+=======
       <p class="card-text">Jiawei Zheng&rsquo;s research interests include Artificial Intelligence, Blockchain, Process Mining, Conformance checking under uncertainty</p>
+>>>>>>> Stashed changes
       <ul class="network-icon" aria-hidden="true">
   
     
@@ -1235,12 +1278,28 @@
     
     
     <div class="container">
-      
-<footer class="site-footer">
-
+<<<<<<< Updated upstream
+      <footer class="site-footer">
 
   
 
+
+=======
+      
+<footer class="site-footer">
+>>>>>>> Stashed changes
+
+  
+
+  
+
+<<<<<<< Updated upstream
+  
+  <p class="powered-by">
+    © 2022 Jiawei Zheng
+  </p>
+  
+=======
   <p class="powered-by">
     © 2024 Jiawei Zheng
 
@@ -1248,6 +1307,7 @@
   <p class="powered-by">
     Published with  <i class="fas fa-solid fa-heart"></i> Xuerui Yi 
   </p>
+>>>>>>> Stashed changes
 
   
   
@@ -1257,11 +1317,14 @@
 
 
 
+<<<<<<< Updated upstream
+=======
   
 
 
 
 
+>>>>>>> Stashed changes
   <p class="powered-by">
     
     
@@ -1269,6 +1332,12 @@
       
       
       
+<<<<<<< Updated upstream
+      
+      
+      
+      Published with <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a> — the free, <a href="https://github.com/wowchemy/wowchemy-hugo-themes" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+=======
         
         
       
@@ -1276,6 +1345,7 @@
       
       
       Published with <a href="https://hugoblox.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Hugo Blox Builder</a> — the free, <a href="https://github.com/HugoBlox/hugo-blox-builder" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+>>>>>>> Stashed changes
     
   </p>
 </footer>
