@@ -5,20 +5,7 @@
     <link>https://jia-wei-zheng.github.io/tag/adls/</link>
       <atom:link href="https://jia-wei-zheng.github.io/tag/adls/index.xml" rel="self" type="application/rss+xml" />
     <description>ADLs</description>
-<<<<<<< HEAD
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2024 Jiawei Zheng</copyright><lastBuildDate>Thu, 29 Aug 2024 15:21:54 +0000</lastBuildDate>
-=======
-<<<<<<< Updated upstream
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2024 Jiawei Zheng</copyright><lastBuildDate>Wed, 01 Dec 2021 00:00:00 +0000</lastBuildDate>
->>>>>>> master
-=======
-<<<<<<< HEAD
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2024 Jiawei Zheng</copyright><lastBuildDate>Thu, 29 Aug 2024 15:21:54 +0000</lastBuildDate>
-=======
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2024 Jiawei Zheng</copyright><lastBuildDate>Wed, 01 Dec 2021 00:00:00 +0000</lastBuildDate>
->>>>>>> master
->>>>>>> b881071a25ebb56e87c9f087bb02dfc04de26212
->>>>>>> Stashed changes
     <image>
       <url>https://jia-wei-zheng.github.io/media/icon_hu88e86d5999bd18f15f6d00205cac0ab3_27282_512x512_fill_lanczos_center_3.png</url>
       <title>ADLs</title>
@@ -26,13 +13,6 @@
     </image>
     
     <item>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-=======
-<<<<<<< HEAD
->>>>>>> b881071a25ebb56e87c9f087bb02dfc04de26212
->>>>>>> Stashed changes
       <title>Successfully defend my PhD thesis with no correction.</title>
       <link>https://jia-wei-zheng.github.io/post/viva/index/</link>
       <pubDate>Thu, 29 Aug 2024 15:21:54 +0000</pubDate>
@@ -84,90 +64,22 @@
       <guid>https://jia-wei-zheng.github.io/post/healthinf/index/</guid>
       <description>&lt;p&gt;I presented the paper titled &amp;lsquo;&amp;lsquo;Predictive Behavioural Monitoring and Deviation Detection in Activities of Daily Livings of Older Adults&amp;rsquo;&amp;rsquo; at the International Conference on Health Informatics (HealthINF).&lt;/p&gt;
 </description>
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
-=======
-      <title>Our paper “Alignment-based conformance checking over probabilistic events” is accepted by Hawaii International Conference on System Science (HICSS, ranked A).</title>
-      <link>https://jia-wei-zheng.github.io/post/hicss/index/</link>
-      <pubDate>Wed, 01 Dec 2021 00:00:00 +0000</pubDate>
-      <guid>https://jia-wei-zheng.github.io/post/hicss/index/</guid>
-      <description></description>
->>>>>>> master
-<<<<<<< Updated upstream
-=======
->>>>>>> b881071a25ebb56e87c9f087bb02dfc04de26212
->>>>>>> Stashed changes
     </item>
     
     <item>
       <title>Talk in DigiFest2021: Proactive health monitoring based on Activities of Daily Living</title>
       <link>https://jia-wei-zheng.github.io/post/digifest2021/</link>
-<<<<<<< HEAD
       <pubDate>Wed, 03 Nov 2021 15:21:54 +0000</pubDate>
       <guid>https://jia-wei-zheng.github.io/post/digifest2021/</guid>
       <description>&lt;p&gt;This talk focused on an onging project. This is aimed at exploiting sensor data on Activities of Daily Living (ADLs) to detect deviations and deterioration from a healthy routine. We also use our models to investigate the realtionship between sleep duration and other activities.&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
-=======
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-      <pubDate>Wed, 03 Nov 2021 15:21:54 +0000</pubDate>
-      <guid>https://jia-wei-zheng.github.io/post/digifest2021/</guid>
-      <description>&lt;p&gt;This talk focused on an onging project. This is aimed at exploiting sensor data on Activities of Daily Living (ADLs) to detect deviations and deterioration from a healthy routine. We also use our models to investigate the realtionship between sleep duration and other activities.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-=======
->>>>>>> Stashed changes
-      <pubDate>Wed, 01 Dec 2021 00:00:00 +0000</pubDate>
-      <guid>https://jia-wei-zheng.github.io/post/digifest2021/</guid>
-      <description>&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./featured.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-&lt;/p&gt;
->>>>>>> master
-<<<<<<< Updated upstream
-=======
->>>>>>> b881071a25ebb56e87c9f087bb02dfc04de26212
->>>>>>> Stashed changes
 </description>
     </item>
     
     <item>
       <title>Advanced Care &amp; Research Center (ACRC)</title>
       <link>https://jia-wei-zheng.github.io/project/acrc/</link>
-<<<<<<< HEAD
       <pubDate>Mon, 27 Apr 2020 04:00:00 +0000</pubDate>
-=======
-<<<<<<< Updated upstream
-      <pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate>
->>>>>>> master
-=======
-<<<<<<< HEAD
-      <pubDate>Mon, 27 Apr 2020 04:00:00 +0000</pubDate>
-=======
-      <pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate>
->>>>>>> master
->>>>>>> b881071a25ebb56e87c9f087bb02dfc04de26212
->>>>>>> Stashed changes
       <guid>https://jia-wei-zheng.github.io/project/acrc/</guid>
       <description>&lt;p&gt;This research programme will develop practical, care-driven technologies that are fit for people in later life. In particular, this means exploring and developing data-driven IoT platforms that can produce accurate data about instant events (e.g. vital signs and serious incidents such as falls), short-term activities (e.g. those of daily living) and long-term pursuits (e.g. physical and mental activities over weeks and months) in order to extract (predictive) information and patterns that can be used, among other things, for effective interventions and the prevention of adverse outcomes.&lt;/p&gt;
 &lt;p&gt;This will develop digitised models of care to allow for meaningful understanding and decision support. This includes models that capture knowledge about care pathways, guidelines, and practices, as well as individual needs and circumstances. These will be used to inform the new models of care work package. Explainable models using AI on existing data to produce alerts and insights towards meaningful interventions. Finally, we will use these digital models to provide predictive performance measures under different circumstances and ageing population trends.&lt;/p&gt;
