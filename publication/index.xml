@@ -2,93 +2,101 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Publications | Jiawei Zheng</title>
-    <link>https://jw2heng.github.io/publication/</link>
-      <atom:link href="https://jw2heng.github.io/publication/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://jia-wei-zheng.github.io/publication/</link>
+      <atom:link href="https://jia-wei-zheng.github.io/publication/index.xml" rel="self" type="application/rss+xml" />
     <description>Publications</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2022 Jiawei Zheng</copyright><lastBuildDate>Thu, 20 Jan 2022 21:45:14 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2024 Jiawei Zheng</copyright><lastBuildDate>Fri, 18 Aug 2023 21:45:14 +0000</lastBuildDate>
     <image>
-      <url>https://jw2heng.github.io/media/icon_hu88e86d5999bd18f15f6d00205cac0ab3_27282_512x512_fill_lanczos_center_3.png</url>
+      <url>https://jia-wei-zheng.github.io/media/icon_hu88e86d5999bd18f15f6d00205cac0ab3_27282_512x512_fill_lanczos_center_3.png</url>
       <title>Publications</title>
-      <link>https://jw2heng.github.io/publication/</link>
+      <link>https://jia-wei-zheng.github.io/publication/</link>
     </image>
     
     <item>
+      <title>Alignment-based conformance checking over probabilistic events</title>
+      <link>https://jia-wei-zheng.github.io/publication/hicss/</link>
+      <pubDate>Fri, 18 Aug 2023 21:45:14 +0000</pubDate>
+      <guid>https://jia-wei-zheng.github.io/publication/hicss/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Predictive Behavioural Monitoring and Deviation Detection in Activities of Daily Living of Older Adults</title>
-      <link>https://jw2heng.github.io/publication/healthinf/</link>
+      <link>https://jia-wei-zheng.github.io/publication/healthinf/</link>
       <pubDate>Thu, 20 Jan 2022 21:45:14 +0000</pubDate>
-      <guid>https://jw2heng.github.io/publication/healthinf/</guid>
+      <guid>https://jia-wei-zheng.github.io/publication/healthinf/</guid>
       <description></description>
     </item>
     
     <item>
       <title>MicrothingsChain: Blockchain-based Controlled Data Sharing Platform in Multi-domain IoT</title>
-      <link>https://jw2heng.github.io/publication/jnana/</link>
+      <link>https://jia-wei-zheng.github.io/publication/jnana/</link>
       <pubDate>Fri, 15 Jan 2021 20:34:29 +0000</pubDate>
-      <guid>https://jw2heng.github.io/publication/jnana/</guid>
+      <guid>https://jia-wei-zheng.github.io/publication/jnana/</guid>
       <description></description>
     </item>
     
     <item>
       <title>BC-RAN: Cloud radio access network enabled by blockchain for 5G</title>
-      <link>https://jw2heng.github.io/publication/bc-ran-cloud-radio-access-network-enabled-by-blockchain-for-5g/</link>
+      <link>https://jia-wei-zheng.github.io/publication/bc-ran-cloud-radio-access-network-enabled-by-blockchain-for-5g/</link>
       <pubDate>Thu, 01 Oct 2020 20:30:55 +0000</pubDate>
-      <guid>https://jw2heng.github.io/publication/bc-ran-cloud-radio-access-network-enabled-by-blockchain-for-5g/</guid>
+      <guid>https://jia-wei-zheng.github.io/publication/bc-ran-cloud-radio-access-network-enabled-by-blockchain-for-5g/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Decentralized and Secure Cross-Domain Data Sharing Scheme Based on Blockchain for Application-Centric IoT</title>
-      <link>https://jw2heng.github.io/publication/jise/</link>
+      <link>https://jia-wei-zheng.github.io/publication/jise/</link>
       <pubDate>Wed, 01 Jul 2020 20:31:45 +0000</pubDate>
-      <guid>https://jw2heng.github.io/publication/jise/</guid>
+      <guid>https://jia-wei-zheng.github.io/publication/jise/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Partial-Equivalence: A Semantic Strategy in Service Composition and Modeling</title>
-      <link>https://jw2heng.github.io/publication/partial-equivalence-a-semantic-strategy-in-service-composition-and-modeling/</link>
+      <link>https://jia-wei-zheng.github.io/publication/partial-equivalence-a-semantic-strategy-in-service-composition-and-modeling/</link>
       <pubDate>Thu, 10 Oct 2019 20:35:51 +0000</pubDate>
-      <guid>https://jw2heng.github.io/publication/partial-equivalence-a-semantic-strategy-in-service-composition-and-modeling/</guid>
+      <guid>https://jia-wei-zheng.github.io/publication/partial-equivalence-a-semantic-strategy-in-service-composition-and-modeling/</guid>
       <description></description>
     </item>
     
     <item>
       <title>QoS-Aware Path Finding and Load Balancing in Service-Composition</title>
-      <link>https://jw2heng.github.io/publication/qos-aware-path-finding-and-load-balancing-in-service-composition/</link>
+      <link>https://jia-wei-zheng.github.io/publication/qos-aware-path-finding-and-load-balancing-in-service-composition/</link>
       <pubDate>Thu, 10 Oct 2019 20:33:03 +0000</pubDate>
-      <guid>https://jw2heng.github.io/publication/qos-aware-path-finding-and-load-balancing-in-service-composition/</guid>
+      <guid>https://jia-wei-zheng.github.io/publication/qos-aware-path-finding-and-load-balancing-in-service-composition/</guid>
       <description></description>
     </item>
     
     <item>
       <title>An Abnormal Transaction Detection Mechanim on Bitcoin</title>
-      <link>https://jw2heng.github.io/publication/an-abnormal-transaction-detection-mechanim-on-bitcoin/</link>
+      <link>https://jia-wei-zheng.github.io/publication/an-abnormal-transaction-detection-mechanim-on-bitcoin/</link>
       <pubDate>Thu, 10 Oct 2019 20:28:46 +0000</pubDate>
-      <guid>https://jw2heng.github.io/publication/an-abnormal-transaction-detection-mechanim-on-bitcoin/</guid>
+      <guid>https://jia-wei-zheng.github.io/publication/an-abnormal-transaction-detection-mechanim-on-bitcoin/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Trust-PBFT: a PeerTrust-based Practical Byzantine Consensus Algorithm</title>
-      <link>https://jw2heng.github.io/publication/trust-pbft-a-peertrust-based-practical-byzantine-consensus-algorithm/</link>
+      <link>https://jia-wei-zheng.github.io/publication/trust-pbft-a-peertrust-based-practical-byzantine-consensus-algorithm/</link>
       <pubDate>Thu, 10 Oct 2019 20:26:25 +0000</pubDate>
-      <guid>https://jw2heng.github.io/publication/trust-pbft-a-peertrust-based-practical-byzantine-consensus-algorithm/</guid>
+      <guid>https://jia-wei-zheng.github.io/publication/trust-pbft-a-peertrust-based-practical-byzantine-consensus-algorithm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Blockchain-based secure digital asset exchange scheme with QoS-aware incentive mechanism</title>
-      <link>https://jw2heng.github.io/publication/blockchain-based-secure-digital-asset-exchange-scheme-with-qos-aware-incentive-mechanism/</link>
+      <link>https://jia-wei-zheng.github.io/publication/blockchain-based-secure-digital-asset-exchange-scheme-with-qos-aware-incentive-mechanism/</link>
       <pubDate>Sun, 26 May 2019 20:30:11 +0000</pubDate>
-      <guid>https://jw2heng.github.io/publication/blockchain-based-secure-digital-asset-exchange-scheme-with-qos-aware-incentive-mechanism/</guid>
+      <guid>https://jia-wei-zheng.github.io/publication/blockchain-based-secure-digital-asset-exchange-scheme-with-qos-aware-incentive-mechanism/</guid>
       <description></description>
     </item>
     
     <item>
       <title>MicrothingsChain: Edge Computing and Decentralized IoT Architecture Based on Blockchain for Cross-Domain Data Sharing </title>
-      <link>https://jw2heng.github.io/publication/microthingchain/</link>
+      <link>https://jia-wei-zheng.github.io/publication/microthingchain/</link>
       <pubDate>Fri, 12 Oct 2018 00:00:00 +0000</pubDate>
-      <guid>https://jw2heng.github.io/publication/microthingchain/</guid>
+      <guid>https://jia-wei-zheng.github.io/publication/microthingchain/</guid>
       <description></description>
     </item>
     
