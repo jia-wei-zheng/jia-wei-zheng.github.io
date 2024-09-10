@@ -1,9 +1,133 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+<<<<<<< HEAD
+    <loc>https://jia-wei-zheng.github.io/</loc>
+    <lastmod>2024-09-03T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/post/</loc>
+    <lastmod>2024-09-03T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/post/phd/index/</loc>
+    <lastmod>2024-09-03T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/post/digitlab_part/index/</loc>
+    <lastmod>2024-09-02T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/tag/adls/</loc>
+    <lastmod>2024-08-29T15:21:54+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/post/viva/index/</loc>
+    <lastmod>2024-08-29T15:21:54+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/tags/</loc>
+    <lastmod>2024-08-29T15:21:54+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/post/multimodalai/index/</loc>
+    <lastmod>2024-06-25T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/post/hicsspresent/index/</loc>
+    <lastmod>2024-01-03T15:21:54+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/post/scisca/index/</loc>
+    <lastmod>2023-10-03T15:21:54+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/post/acrc/index/</loc>
+    <lastmod>2023-09-20T15:21:54+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/post/hicss/index/</loc>
+    <lastmod>2023-08-20T15:21:54+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/publication-type/1/</loc>
+    <lastmod>2023-08-18T21:45:14+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/publication/hicss/</loc>
+    <lastmod>2023-08-18T21:45:14+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/publication_types/</loc>
+    <lastmod>2023-08-18T21:45:14+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/publication/</loc>
+    <lastmod>2023-08-18T21:45:14+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/post/xidiantalk/index/</loc>
+    <lastmod>2023-05-20T15:21:54+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/post/usher-talk/index/</loc>
+    <lastmod>2022-03-20T15:21:54+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/post/healthinf/index/</loc>
+    <lastmod>2022-02-20T15:21:54+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/publication/healthinf/</loc>
+    <lastmod>2022-01-20T21:45:14+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/post/digifest2021/</loc>
+    <lastmod>2021-11-03T15:21:54+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/publication-type/2/</loc>
+    <lastmod>2021-01-15T20:34:29+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/publication/jnana/</loc>
+    <lastmod>2021-01-15T20:34:29+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/publication/bc-ran-cloud-radio-access-network-enabled-by-blockchain-for-5g/</loc>
+    <lastmod>2020-10-01T20:30:55+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/publication/jise/</loc>
+    <lastmod>2020-07-01T20:31:45+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/project/acrc/</loc>
+    <lastmod>2020-04-27T04:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/project/</loc>
+    <lastmod>2020-04-27T04:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/publication-type/0/</loc>
+    <lastmod>2019-10-10T20:35:51+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/publication/partial-equivalence-a-semantic-strategy-in-service-composition-and-modeling/</loc>
+    <lastmod>2019-10-10T20:35:51+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/publication/qos-aware-path-finding-and-load-balancing-in-service-composition/</loc>
+    <lastmod>2019-10-10T20:33:03+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/publication/an-abnormal-transaction-detection-mechanim-on-bitcoin/</loc>
+    <lastmod>2019-10-10T20:28:46+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/publication/trust-pbft-a-peertrust-based-practical-byzantine-consensus-algorithm/</loc>
+    <lastmod>2019-10-10T20:26:25+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/publication/blockchain-based-secure-digital-asset-exchange-scheme-with-qos-aware-incentive-mechanism/</loc>
+    <lastmod>2019-05-26T20:30:11+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/tag/blockchain/</loc>
+    <lastmod>2019-04-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/tag/iot/</loc>
+    <lastmod>2019-04-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/project/blockchain-province/</loc>
+    <lastmod>2019-04-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/publication/microthingchain/</loc>
+    <lastmod>2018-10-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/project/blockchain-national/</loc>
+    <lastmod>2018-04-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/project/iot-province/</loc>
+    <lastmod>2017-04-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/admin/</loc>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/categories/</loc>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/event/</loc>
+  </url>
+</urlset>
+=======
     <loc></loc><lastmod>2023-08-18T21:45:14+00:00</lastmod></url>
   <url>
     <loc>https://jia-wei-zheng.github.io/publication-type/1/</loc><lastmod>2023-08-18T21:45:14+00:00</lastmod></url>
@@ -105,3 +229,4 @@
     <loc>https://jia-wei-zheng.github.io/categories/</loc></url>
   <url>
     <loc>https://jia-wei-zheng.github.io/event/</loc></url></urlset>
+>>>>>>> master
