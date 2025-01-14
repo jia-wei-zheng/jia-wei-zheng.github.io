@@ -5,12 +5,20 @@
     <link>https://jia-wei-zheng.github.io/publication/</link>
       <atom:link href="https://jia-wei-zheng.github.io/publication/index.xml" rel="self" type="application/rss+xml" />
     <description>Publications</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2024 Jiawei Zheng</copyright><lastBuildDate>Fri, 18 Aug 2023 21:45:14 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2025 Jiawei Zheng</copyright><lastBuildDate>Wed, 13 Nov 2024 21:45:14 +0000</lastBuildDate>
     <image>
       <url>https://jia-wei-zheng.github.io/media/icon_hu88e86d5999bd18f15f6d00205cac0ab3_27282_512x512_fill_lanczos_center_3.png</url>
       <title>Publications</title>
       <link>https://jia-wei-zheng.github.io/publication/</link>
     </image>
+    
+    <item>
+      <title>Process-aware Human Activity Recognition</title>
+      <link>https://jia-wei-zheng.github.io/publication/process-aware-har/</link>
+      <pubDate>Wed, 13 Nov 2024 21:45:14 +0000</pubDate>
+      <guid>https://jia-wei-zheng.github.io/publication/process-aware-har/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Alignment-based conformance checking over probabilistic events</title>

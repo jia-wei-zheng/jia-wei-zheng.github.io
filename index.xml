@@ -5,12 +5,20 @@
     <link>https://jia-wei-zheng.github.io/</link>
       <atom:link href="https://jia-wei-zheng.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>Jiawei Zheng</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2024 Jiawei Zheng</copyright><lastBuildDate>Tue, 03 Sep 2024 09:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2025 Jiawei Zheng</copyright><lastBuildDate>Wed, 13 Nov 2024 21:45:14 +0000</lastBuildDate>
     <image>
       <url>https://jia-wei-zheng.github.io/media/icon_hu88e86d5999bd18f15f6d00205cac0ab3_27282_512x512_fill_lanczos_center_3.png</url>
       <title>Jiawei Zheng</title>
       <link>https://jia-wei-zheng.github.io/</link>
     </image>
+    
+    <item>
+      <title>Process-aware Human Activity Recognition</title>
+      <link>https://jia-wei-zheng.github.io/publication/process-aware-har/</link>
+      <pubDate>Wed, 13 Nov 2024 21:45:14 +0000</pubDate>
+      <guid>https://jia-wei-zheng.github.io/publication/process-aware-har/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Offically awarded my PhD degree.</title>
@@ -27,6 +35,17 @@
       <pubDate>Mon, 02 Sep 2024 09:00:00 +0000</pubDate>
       <guid>https://jia-wei-zheng.github.io/post/digitlab_part/index/</guid>
       <description>&lt;p&gt;I joined &lt;a href=&#34;https://digit.ac.uk/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;DigitLab&lt;/a&gt; as a Postdoctoral Research Fellow.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Process-aware Pattern Recognition and Deviation Detection Under Uncertainty</title>
+      <link>https://jia-wei-zheng.github.io/project/phd/</link>
+      <pubDate>Mon, 02 Sep 2024 04:00:00 +0000</pubDate>
+      <guid>https://jia-wei-zheng.github.io/project/phd/</guid>
+      <description>&lt;p&gt;Humans naturally follow specific patterns in their daily activities, whether driven by best practices, physical layouts, social norms or established processes or routines. Monitoring and understanding these human activities is a challenging problem, with the ultimate goal of identifying anomalies from desired behaviour, such as those related to healthy living or efficient working. Recognising process patterns and routines, and  detecting anomalies can provide crucial insights. However, this presents significant challenges across different domains.&lt;/p&gt;
+&lt;p&gt;Varying structures of processes in different domains complicate the task of capturing and analysing these patterns, as well as understanding the multifaceted nature of anomalies. Some domains are structured, like manufacturing, therefore it is easier to detect workflow patterns and deviations from them, but others are semi-structured or unstructured, like daily living. In the latter, even defining what an anomaly means is a challenge. Moreover, data are often filled with noise and uncertainties, which may lead to misinterpretation of normal occurrences as anomalies.&lt;/p&gt;
+&lt;p&gt;This project aims to incorporate process information in the domain knowledge to interpret patterns and detect anomalies in different domains.&lt;/p&gt;
 </description>
     </item>
     
