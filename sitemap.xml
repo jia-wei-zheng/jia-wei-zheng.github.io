@@ -2,10 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://jia-wei-zheng.github.io/publication-type/1/</loc>
-    <lastmod>2024-11-13T21:45:14+00:00</lastmod>
+    <loc>https://jia-wei-zheng.github.io/project/comfyui/</loc>
+    <lastmod>2024-12-02T04:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/tag/aigc/</loc>
+    <lastmod>2024-12-02T04:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jia-wei-zheng.github.io/</loc>
+    <lastmod>2024-12-02T04:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/project/</loc>
+    <lastmod>2024-12-02T04:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/tags/</loc>
+    <lastmod>2024-12-02T04:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jia-wei-zheng.github.io/publication-type/1/</loc>
     <lastmod>2024-11-13T21:45:14+00:00</lastmod>
   </url><url>
     <loc>https://jia-wei-zheng.github.io/publication/process-aware-har/</loc>
@@ -30,12 +42,6 @@
     <lastmod>2024-09-02T04:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jia-wei-zheng.github.io/project/phd/</loc>
-    <lastmod>2024-09-02T04:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jia-wei-zheng.github.io/project/</loc>
-    <lastmod>2024-09-02T04:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jia-wei-zheng.github.io/tags/</loc>
     <lastmod>2024-09-02T04:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jia-wei-zheng.github.io/post/viva/index/</loc>

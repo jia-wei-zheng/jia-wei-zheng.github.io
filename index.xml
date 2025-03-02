@@ -5,12 +5,37 @@
     <link>https://jia-wei-zheng.github.io/</link>
       <atom:link href="https://jia-wei-zheng.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>Jiawei Zheng</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2025 Jiawei Zheng</copyright><lastBuildDate>Wed, 13 Nov 2024 21:45:14 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2025 Jiawei Zheng</copyright><lastBuildDate>Mon, 02 Dec 2024 04:00:00 +0000</lastBuildDate>
     <image>
       <url>https://jia-wei-zheng.github.io/media/icon_hu88e86d5999bd18f15f6d00205cac0ab3_27282_512x512_fill_lanczos_center_3.png</url>
       <title>Jiawei Zheng</title>
       <link>https://jia-wei-zheng.github.io/</link>
     </image>
+    
+    <item>
+      <title>AI-Powered Image and Video Generation with ComfyUI</title>
+      <link>https://jia-wei-zheng.github.io/project/comfyui/</link>
+      <pubDate>Mon, 02 Dec 2024 04:00:00 +0000</pubDate>
+      <guid>https://jia-wei-zheng.github.io/project/comfyui/</guid>
+      <description>&lt;p&gt;This project leverages the ComfyUI platform to explore and implement a variety of AI models for image and video generation. By integrating state-of-the-art generative models, e.g., Flux, Stable Diffusion, etc., the project aims to create a user-friendly workflow for producing high-quality visuals, enabling artists, developers, and enthusiasts to generate content effortlessly.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Key Features&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Multi-Model Integration: Utilize a diverse set of AI models (e.g., Stable Diffusion, SDXL, ControlNet, and others) to generate both static images and dynamic videos.&lt;/li&gt;
+&lt;li&gt;ComfyUI Workflow Optimization: Design modular and efficient workflows within ComfyUI to adapt usecases and enhance usability, customization, and scalability.&lt;/li&gt;
+&lt;li&gt;Image Generation: Generate highly detailed and realistic images based on text prompts, sketches, and style-guided inputs.&lt;/li&gt;
+&lt;li&gt;Video Generation: Implement AI-driven video synthesis methods, enabling smooth transitions, frame interpolation, and AI-powered animations.&lt;/li&gt;
+&lt;li&gt;Customization &amp;amp; Control: Provide users with fine-tuned settings for resolution, style transfer, depth mapping, and more.&lt;/li&gt;
+&lt;li&gt;Automation &amp;amp; Scripting: Enable batch processing, API integrations, and automation features for streamlined creative workflows.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Potential Use Cases&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Digital Art &amp;amp; Design: Artists and designers can create unique visuals effortlessly.&lt;/li&gt;
+&lt;li&gt;Video Content Creation: AI-powered video generation for animations, ads, and visual storytelling.&lt;/li&gt;
+&lt;li&gt;Game &amp;amp; VR Development: Generate textures, assets, and immersive AI-driven content.&lt;/li&gt;
+&lt;li&gt;Marketing &amp;amp; Branding: Businesses can create eye-catching media content for campaigns.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Process-aware Human Activity Recognition</title>
