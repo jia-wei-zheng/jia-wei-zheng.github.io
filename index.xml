@@ -5,12 +5,39 @@
     <link>https://jia-wei-zheng.github.io/</link>
       <atom:link href="https://jia-wei-zheng.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>Jiawei Zheng</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2025 Jiawei Zheng</copyright><lastBuildDate>Mon, 02 Dec 2024 04:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2025 Jiawei Zheng</copyright><lastBuildDate>Tue, 02 Sep 2025 04:00:00 +0000</lastBuildDate>
     <image>
       <url>https://jia-wei-zheng.github.io/media/icon_hu88e86d5999bd18f15f6d00205cac0ab3_27282_512x512_fill_lanczos_center_3.png</url>
       <title>Jiawei Zheng</title>
       <link>https://jia-wei-zheng.github.io/</link>
     </image>
+    
+    <item>
+      <title>LLM-powered Digital Innovation and Transformation for Enterprises</title>
+      <link>https://jia-wei-zheng.github.io/project/llm-dt/</link>
+      <pubDate>Tue, 02 Sep 2025 04:00:00 +0000</pubDate>
+      <guid>https://jia-wei-zheng.github.io/project/llm-dt/</guid>
+      <description>&lt;p&gt;This project explores how large language models (LLMs) can support enterprise-level digital transformation by acting as intelligent consulting agents. Funded by the UK Research and Innovation (UKRI) DigitLab programme, our system provides practical tools for assessing digital maturity, identifying transformation needs, and generating tailored recommendations — all powered by state-of-the-art LLMs.&lt;/p&gt;
+&lt;h2 id=&#34;project-overview&#34;&gt;Project overview:&lt;/h2&gt;
+&lt;p&gt;We developed a modular, multi-agent framework that leverages LLMs to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Conduct semi-structured interviews with domain experts using interactive LLM-powered agents&lt;/li&gt;
+&lt;li&gt;Collect, summarize, and analyze client responses in real time&lt;/li&gt;
+&lt;li&gt;Generate professional-grade reports with contextual understanding and consistency&lt;/li&gt;
+&lt;li&gt;Evaluate and score reports automatically across different use cases (e.g., healthcare, manufacturing, consulting)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;key-features&#34;&gt;Key Features&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;LLM-based Consulting Agents&lt;/strong&gt;: Autonomous agents capable of conducting interviews, eliciting information, and adapting to user inputs across sessions.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Context Tracking &amp;amp; Memory Augmentation&lt;/strong&gt;: Maintains coherent, goal-driven conversations with memory-aware dialogue management and summarization.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RAG-Enhanced Responses&lt;/strong&gt;: Retrieval-Augmented Generation pipeline to ground responses in enterprise-specific knowledge and domain context.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Automated Report Evaluation&lt;/strong&gt;: Multi-agent evaluation system that analyzes generated reports and flags missing, inconsistent, or misaligned content.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Gradio-based Data Annotation Tool&lt;/strong&gt;: A user-friendly UI for collecting preference data from consulting experts, used for feedback collection and fine-tuning.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;research--collaboration&#34;&gt;Research &amp;amp; Collaboration&lt;/h2&gt;
+&lt;p&gt;This project is part of the UKRI-funded &lt;a href=&#34;https://digit.ac.uk/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;DigitLab&lt;/a&gt; programme and conducted in collaboration with business and operational researchers.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>AI-Powered Image and Video Generation with ComfyUI</title>
