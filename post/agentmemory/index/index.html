@@ -1,0 +1,2180 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.1.0 for Hugo" />
+  
+
+  
+    <meta name="google-site-verification" content="Yi5L9Mta_YKkvIQeGiKbUUdzofVeqIg_ty5EqSJdJl4" />
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Jiawei Zheng" />
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Memory system design for long-running agent systems. We propose a reusable memory framework for LLM-based agent systems. It provides tiered memory (working, episodic, semantic, perceptual), hot/cold storage, archive indexing, confidence-based retrieval escalation, and optional local vector search via sqlite-vec." />
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://jia-wei-zheng.github.io/post/agentmemory/index/" />
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    <meta name="theme-color" content="#284f7a" />
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous">
+
+    
+    
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light" media="print" onload="this.media='all'">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all'" disabled>
+        
+      
+    
+
+    
+    
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.2eb533684bb4f8cc9f29c5d5d048f4ff.css" />
+
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0WHK6LXPKM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'G-0WHK6LXPKM', {});
+  gtag('set', {'cookie_flags': 'SameSite=None;Secure'});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
+  
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+    <link rel="manifest" href="/index.webmanifest" />
+  
+
+  <link rel="icon" type="image/png" href="/media/icon_hu88e86d5999bd18f15f6d00205cac0ab3_27282_32x32_fill_lanczos_center_3.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu88e86d5999bd18f15f6d00205cac0ab3_27282_180x180_fill_lanczos_center_3.png" />
+
+  <link rel="canonical" href="https://jia-wei-zheng.github.io/post/agentmemory/index/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary" />
+  
+  <meta property="og:site_name" content="Jiawei Zheng" />
+  <meta property="og:url" content="https://jia-wei-zheng.github.io/post/agentmemory/index/" />
+  <meta property="og:title" content="Memory system design for long-running agent systems | Jiawei Zheng" />
+  <meta property="og:description" content="Memory system design for long-running agent systems. We propose a reusable memory framework for LLM-based agent systems. It provides tiered memory (working, episodic, semantic, perceptual), hot/cold storage, archive indexing, confidence-based retrieval escalation, and optional local vector search via sqlite-vec." /><meta property="og:image" content="https://jia-wei-zheng.github.io/media/icon_hu88e86d5999bd18f15f6d00205cac0ab3_27282_512x512_fill_lanczos_center_3.png" />
+    <meta property="twitter:image" content="https://jia-wei-zheng.github.io/media/icon_hu88e86d5999bd18f15f6d00205cac0ab3_27282_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2026-02-05T15:21:54&#43;00:00"
+      />
+    
+    <meta property="article:modified_time" content="2026-02-05T15:21:54&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://jia-wei-zheng.github.io/post/agentmemory/index/"
+  },
+  "headline": "Memory system design for long-running agent systems",
+  
+  "datePublished": "2026-02-05T15:21:54Z",
+  "dateModified": "2026-02-05T15:21:54Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Jiawei Zheng"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Jiawei Zheng",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://jia-wei-zheng.github.io/media/icon_hu88e86d5999bd18f15f6d00205cac0ab3_27282_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "Memory system design for long-running agent systems. We propose a reusable memory framework for LLM-based agent systems. It provides tiered memory (working, episodic, semantic, perceptual), hot/cold storage, archive indexing, confidence-based retrieval escalation, and optional local vector search via sqlite-vec."
+}
+</script>
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  <title>Memory system design for long-running agent systems | Jiawei Zheng</title>
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="964e406e12a4bb6fa2a0ae767aab5546" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.a8a181ea67095ef9fbb0e99ffbf585a0.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container-xl">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Jiawei Zheng</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Jiawei Zheng</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publications"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#service"><span>Services</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#advisor"><span>Teaching</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+      
+      
+        
+      
+        
+      
+
+      
+      
+
+      
+      
+
+      
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  </div>
+
+  <div class="page-body">
+    <div class="container-fluid docs">
+  <div class="row">
+
+    <div class="col-xl-2 col-lg-2 d-none d-xl-block d-lg-block empty">
+    </div>
+
+    <div class="col-2 col-xl-2 col-lg-2 d-none d-lg-block docs-toc">
+      <ul class="nav toc-top">
+        <li><a href="#" id="back_to_top" class="docs-toc-title">Contents</a></li>
+      </ul>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#memory-type">Memory type</a>
+      <ul>
+        <li><a href="#working-memory">Working memory</a></li>
+        <li><a href="#episodic-memory">Episodic memory</a></li>
+        <li><a href="#semantic-memory">Semantic memory</a></li>
+        <li><a href="#perceptual-memory">Perceptual memory</a></li>
+        <li><a href="#example-case-personal-assistant-agent">Example Case: Personal assistant agent</a></li>
+        <li><a href="#example-case-openclaw">Example Case: OpenClaw</a></li>
+      </ul>
+    </li>
+    <li><a href="#hot-and-cold-memory">Hot and cold memory</a>
+      <ul>
+        <li><a href="#working-memory-1">Working memory</a></li>
+        <li><a href="#episodic-memory-1">Episodic memory</a></li>
+        <li><a href="#semantic-memory-1">Semantic memory</a></li>
+        <li><a href="#perceptual-memory-1">Perceptual memory</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-different-memory-is-created">How different memory is created?</a>
+      <ul>
+        <li><a href="#how-episodic-memory-is-created">How episodic memory is created?</a></li>
+        <li><a href="#how-semantic-memory-is-created">How semantic memory is created?</a></li>
+        <li><a href="#what-is-the-relation-of-perceptual-memory-with-other-memories">What is the relation of perceptual memory with other memories?</a></li>
+        <li><a href="#an-simple-example">An simple example</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-different-memory-is-retrieved">How different memory is retrieved?</a>
+      <ul>
+        <li><a href="#example-how-the-memory-in-clawdbot-get-indexed">Example: how the memory in Clawdbot get indexed?</a></li>
+      </ul>
+    </li>
+    <li><a href="#summary-tldr">Summary (TL;DR)</a></li>
+  </ul>
+</nav>
+    </div>
+
+    <main class="col-xl-8 col-lg-8 docs-content" role="main">
+        <article class="article">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Memory system design for long-running agent systems</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+  <span class="author-highlighted">
+      Jiawei Zheng</span>
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    February 5, 2026
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    16 min read
+  </span>
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+<div class="btn-links mb-3">
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+<a class="btn btn-outline-primary btn-page-header" href="https://github.com/jia-wei-zheng/MemoryAgent" target="_blank" rel="noopener">
+  Project
+</a>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+  
+</div>
+
+
+        <div class="article-container">
+          <div class="article-style" align="justify">
+            <p>For a long-running agent system, a well-designed memory architecture is essential to maintain context, preserve experience, and continuously improve behaviour across interactions.</p>
+<p>This article presents a systematic way to think about agent memory, clarifies its relationship with context, and provides a practical framework for storing, retrieving, and composing memory into each model invocation.</p>
+<p>This article also includes learned experience from <a href="https://openclaw.ai/" target="_blank" rel="noopener">OpenClaw</a> (Previously called Clawdbot, Moltbot).</p>
+<p>To make the ideas described in this article practical and easy to adopt, we have developed <strong>MemoryAgent</strong>, an open-source framework that implements this tiered memory architecture as a <strong>drop-in memory layer for agent systems</strong>.</p>
+<p>Github link: <a href="https://github.com/jia-wei-zheng/MemoryAgent" target="_blank" rel="noopener">https://github.com/jia-wei-zheng/MemoryAgent</a></p>
+<p>Before discussing specific memory mechanisms, it is crucial to distinguish two closely related but fundamentally different concepts: <strong>context</strong> and <strong>memory</strong>.</p>
+<p><strong>Context</strong> refers to everything the model can directly &ldquo;see&rdquo; for a single request.</p>
+<p>Context has below features:</p>
+<ul>
+<li>Short-lived: Exists only for this single request</li>
+<li>Bounded: Limited by the model&rsquo;s context window (e.g., 200j tokens)</li>
+<li>Costly: Larger context -&gt; high latency and API cost</li>
+<li>Transient: Discarded after the request completes.</li>
+</ul>
+<p><strong>Memory</strong> is persistent information, typically stored on disk, either in files or in a database.</p>
+<p>The features of memory:</p>
+<ul>
+<li>Persistent: Can last days, months, or years</li>
+<li>Unbounded: No inherent context window limits</li>
+<li>Cheap to store: Disk and database are orders of magnitude cheaper than context tokens.</li>
+<li>Searchable: Can be indexed, embedded for semantic retrieval</li>
+</ul>
+<p>Memory exists to selectively rebuild context when needed.</p>
+<h2 id="memory-type">Memory type</h2>
+<p>Based on purpose, lifespan, and usage patterns, agent memory can be characterized into four primary types:</p>
+<h3 id="working-memory">Working memory</h3>
+<p>Working memory represents the agent&rsquo;s current workspace, closely aligned with the context.</p>
+<p>Characteristics:</p>
+<ul>
+<li>Very short-lived</li>
+<li>Frequently updated</li>
+<li>Automatically cleared or overwritten</li>
+<li>Directly influences reasoning and tool use</li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li>current conversation turns</li>
+<li>Intermediate reasoning states</li>
+<li>Tool call outputs</li>
+<li>Temporary variables (e.g., current task = booking flight)</li>
+</ul>
+<p>In practice, working memory is usually implemented as context assembly logic, not long-term storage.</p>
+<h3 id="episodic-memory">Episodic memory</h3>
+<p>Episodic memory stores time-stamped experiences, what happened, when it happened, and under what circumstances.</p>
+<p>Characteristics:</p>
+<ul>
+<li>Strongly tied to time</li>
+<li>Append-only or slowly growing</li>
+<li>Gradually loses relevance over time</li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li>
+<p>“2026-03-12 10:30: User asked to book a flight using browser automation”</p>
+</li>
+<li>
+<p>“Yesterday: user complained about poor sleep quality”</p>
+</li>
+</ul>
+<p>Episodic memory enables the agent to recall past interactions, detect patterns over time, provide continuity (&ldquo;last time you mentioned&hellip;&quot;)</p>
+<h3 id="semantic-memory">Semantic memory</h3>
+<p>Semantic memory stores abstracted knowledge extracted from experience: facts, rules, preferences, and generalized conclusions.</p>
+<p>Characteristics</p>
+<ul>
+<li>Time-independent (or weakly time-dependent)</li>
+<li>Highly reusable</li>
+<li>Actively influences decision-making</li>
+<li>Low volume but high value</li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li>“User prefers aisle seats when flying”</li>
+<li>“If user sleeps &lt; 6h for multiple days, fatigue increases”</li>
+<li>“Booking flights usually requires passport verification”</li>
+</ul>
+<p>Semantic memory often emerges through consolidation from episodic and working memory.</p>
+<h3 id="perceptual-memory">Perceptual memory</h3>
+<p>Perceptual memory stores raw or minimally processed sensory and environmental data.</p>
+<p>Characteristics:</p>
+<ul>
+<li>High volume</li>
+<li>Often noisy</li>
+<li>Rarely retrieved directly</li>
+<li>Used to derive high-level features or summaries</li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li>Wearable sensor data (heart rate, steps, sleep cycles)</li>
+<li>Audio, images, screenshots</li>
+<li>Environment logs</li>
+</ul>
+<p>Perceptual memory typically feeds into episodic or semantic memory through preprocessing and aggregation.</p>
+<h3 id="example-case-personal-assistant-agent">Example Case: Personal assistant agent</h3>
+<table>
+<thead>
+<tr>
+<th>Memory Type</th>
+<th>Example Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Working</td>
+<td>Current conversation, tool results, active task</td>
+</tr>
+<tr>
+<td>Episodic</td>
+<td>Daily interaction logs, notable events</td>
+</tr>
+<tr>
+<td>Semantic</td>
+<td>User preferences, learned habits, rules</td>
+</tr>
+<tr>
+<td>Perceptual</td>
+<td>Health sensor data, raw activity logs</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-case-openclaw">Example Case: OpenClaw</h3>
+<p><a href="https://openclaw.ai/" target="_blank" rel="noopener">OpenClaw</a> (Previously called Clawdbot, Moltbot) is recent popular agent project, which achieves the most popular AI product in Github. In Clawdbot, the working memory is equivalent to context, which contains:</p>
+<pre tabindex="0"><code>[0] System Prompt (static + conditional instructions)
+[1] Project Context (bootstrap files: AGENTS.md, SOUL.md, etc.)
+[2] Conversation History (messages, tool calls, compaction summaries)
+[3] Current Message
+</code></pre><p>In project context, there are user editable Markdown files, which can be injected into working memory. This includes:</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AGENTs.md</td>
+<td>Agent instructions, including memory guidelines</td>
+</tr>
+<tr>
+<td>SOUL.md</td>
+<td>Personality and tone</td>
+</tr>
+<tr>
+<td>USER.md.</td>
+<td>Information about the user</td>
+</tr>
+<tr>
+<td>TOOLs.md</td>
+<td>Usage guidance for external tools</td>
+</tr>
+</tbody>
+</table>
+<p>Episodic and semantic memory of Clawdbot is build on plain Markdown in the agent workspace. It has a two layer memory system.</p>
+<pre tabindex="0"><code>Memory lives in the agent’s workspace (default: ~/clawd/):
+
+~/clawd/
+├── MEMORY.md              - Layer 2: Long-term curated knowledge
+└── memory/
+    ├── 2026-01-26.md      - Layer 1: Today's notes
+    ├── 2026-01-25.md      - Yesterday's notes
+    ├── 2026-01-24.md      - ...and so on
+    └── ...
+</code></pre><p>Layer 1 is episodic memory, recording daily logs,  These are append-only daily notes that the agent writes here throughout the day. The agent writes this when the agent wants to remember something or when explicitly told to remember something.</p>
+<pre tabindex="0"><code># 2026-01-26
+
+## 10:30 AM - API Discussion
+Discussed REST vs GraphQL with user. Decision: use REST for simplicity.
+Key endpoints: /users, /auth, /projects.
+
+## 2:15 PM - Deployment
+Deployed v2.3.0 to production. No issues.
+
+## 4:00 PM - User Preference
+User mentioned they prefer TypeScript over JavaScript.
+</code></pre><p>Layer 2 is Long-term memory, what we called semantic memory. This is curated, persistent knowledge. Agent writes to this when significant events, thought, decisions, opinions, and lessons learned.</p>
+<pre tabindex="0"><code># Long-term Memory
+
+## User Preferences
+- Prefers TypeScript over JavaScript
+- Likes concise explanations
+- Working on project &quot;Acme Dashboard&quot;
+
+## Important Decisions
+- 2026-01-15: Chose PostgreSQL for database
+- 2026-01-20: Adopted REST over GraphQL
+- 2026-01-26: Using Tailwind CSS for styling
+
+## Key Contacts
+- Alice (alice@acme.com) - Design lead
+- Bob (bob@acme.com) - Backend engineer
+</code></pre><h2 id="hot-and-cold-memory">Hot and cold memory</h2>
+<p>LLMs operate with a bounded context window and a bounded latency budget. Memory, in contrast, is unbounded and grows continuously.
+Without hot/cold separation, the system faces an impossible trade-off:</p>
+<ul>
+<li>
+<p>either retrieve too much and overflow context / latency,</p>
+</li>
+<li>
+<p>or retrieve too little and hallucinate or forget.</p>
+</li>
+</ul>
+<p>Hot/cold memory is the mechanism that resolves this tension.</p>
+<p>In a long-running agent, each memory type can be split into:</p>
+<ul>
+<li>
+<p>Hot memory (hot tier): optimized for low-latency retrieval and frequent access</p>
+</li>
+<li>
+<p>Cold memory (cold tier): optimized for low-cost storage and long retention</p>
+</li>
+<li>
+<p>Archive index (hot index over cold): lightweight searchable representation of cold items (so we never scan cold directly)</p>
+</li>
+</ul>
+<p>Rule of thumb: hot tier stores what is needed for interactive reasoning, cold tier stores what might be needed &ldquo;eventually&rdquo;.</p>
+<h3 id="working-memory-1">Working memory</h3>
+<p>Hot working memory:</p>
+<ul>
+<li>
+<p>Stored in process state</p>
+</li>
+<li>
+<p>Contains:</p>
+<ul>
+<li>current conversation window (last N turns),</li>
+<li>current task state (goal, plan, pending actions)</li>
+<li>recent tool outputs and scratchpad.</li>
+</ul>
+</li>
+<li>
+<p>Retention: Time-to-Live (TTL): from minutes to hours</p>
+</li>
+</ul>
+<p>Cold working memory:</p>
+<ul>
+<li>Usually not stored as &ldquo;working memory&rdquo;</li>
+<li>Instead, a subset is consolidated into episodic / semantic memory, see <a href="#how-different-memory-is-created">How different memory is created</a></li>
+</ul>
+<h3 id="episodic-memory-1">Episodic memory</h3>
+<p>Hot episodic memory:</p>
+<ul>
+<li>Store: recent and/or frequently used episodes</li>
+<li>Typical hot content:
+<ul>
+<li>last 7/30/90 days of events</li>
+<li>high-importance episodes</li>
+</ul>
+</li>
+<li>Index:
+<ul>
+<li>Vector index on event text/summary, this is used for semantic retrieval</li>
+<li>time index, used for range filtering</li>
+<li>tags/entities filters</li>
+</ul>
+</li>
+</ul>
+<p>Cold episodic memory</p>
+<ul>
+<li>Store: full event details for long-term history</li>
+<li>Typical cold content: full text, attachments pointers, tool traces, structured fields</li>
+<li>Partitioning: by user/agent, by time (day/week/month) for time-range retrieval</li>
+</ul>
+<p>Archive index for episodic</p>
+<ul>
+<li>Stored in hot tier (fast)</li>
+<li>Contains:
+<ul>
+<li>event summary</li>
+<li>summary embedding</li>
+<li>time range</li>
+<li>tags/entities</li>
+<li>pointer to cold object</li>
+</ul>
+</li>
+</ul>
+<h3 id="semantic-memory-1">Semantic memory</h3>
+<p>Hot semantic memory:</p>
+<ul>
+<li>Store: active knowledge that affects decisions</li>
+<li>Recommend structure:
+<ul>
+<li>Graph DB (nodes: concepts/rules/preference; edges: relations)</li>
+<li>Optional vector index over node description</li>
+</ul>
+</li>
+<li>Contains:
+<ul>
+<li>high-centrality knowledge</li>
+<li>most-referenced user preferences</li>
+<li>latest versions of rules/policies</li>
+</ul>
+</li>
+</ul>
+<p>Cold semantic memory:</p>
+<ul>
+<li>Store: rarely-used knowledge</li>
+<li>Best practice: archive at subgraph / concept-cluster granularity</li>
+<li>Contains:
+<ul>
+<li>serialised subgraph snapshot</li>
+<li>version metadata</li>
+<li>deprecation reasons</li>
+</ul>
+</li>
+</ul>
+<p>Archive index for semantic memory</p>
+<ul>
+<li>Store: cluster summaries rather than raw nodes</li>
+<li>Contains:
+<ul>
+<li>Cluster_id + version</li>
+<li>summary + embedding</li>
+<li>kep concepts list</li>
+<li>pointer to cold snapshot</li>
+</ul>
+</li>
+</ul>
+<h3 id="perceptual-memory-1">Perceptual memory</h3>
+<p>Hot perceptual memory</p>
+<ul>
+<li>Store: recent raw window and derived features</li>
+<li>Contains
+<ul>
+<li>last N days raw signals</li>
+<li>features (daily aggregates, anomalies)</li>
+<li>evidence snippets for explanation</li>
+</ul>
+</li>
+<li>Index:
+<ul>
+<li>time-series index (by timestamp)</li>
+<li>anomaly index (events that matter)</li>
+<li>vector index for media embeddings (images/audio)</li>
+</ul>
+</li>
+</ul>
+<p>Cold perceptual memory:</p>
+<ul>
+<li>Store: full raw data indefinitely (cheap storage)</li>
+<li>Partitioning: user_id / date / modality</li>
+<li>Compression: store raw as parquet/jsonl/zip</li>
+<li>Retrieval: fetch a specific time range or referenced segment</li>
+</ul>
+<p>Archive index for perceptual</p>
+<ul>
+<li>Stores:
+<ul>
+<li>time ranges + stats + anomaly markers</li>
+<li>thumbnails/low-res previews (optional)</li>
+<li>embeddings for media summaries (optional)</li>
+<li>pointer to raw partitions</li>
+</ul>
+</li>
+</ul>
+<h2 id="how-different-memory-is-created">How different memory is created?</h2>
+<p>Memory consolidation does not happen continuously. It is triggered by events or conditions indicating that information in working memory has long-term value.</p>
+<p>Primary consolidation triggers</p>
+<table>
+<thead>
+<tr>
+<th>Trigger type</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Task boundary</td>
+<td>Task completed, failed, or abandoned</td>
+</tr>
+<tr>
+<td>User signal</td>
+<td>Explicit feedback, correction, or preference</td>
+</tr>
+<tr>
+<td>Repetition</td>
+<td>Similar working-memory patterns observed repeatedly</td>
+</tr>
+<tr>
+<td>Decision point</td>
+<td>Irreversible or high-impact action taken</td>
+</tr>
+<tr>
+<td>Anomaly</td>
+<td>Unexpected outcome or error</td>
+</tr>
+<tr>
+<td>Time boundary</td>
+<td>End of conversation or daily summary cycle</td>
+</tr>
+</tbody>
+</table>
+<h3 id="how-episodic-memory-is-created">How episodic memory is created?</h3>
+<p>Typical candidates from working memory can be consolidated as episodic memory:</p>
+<ul>
+<li>
+<p>completed tasks,</p>
+</li>
+<li>
+<p>notable user requests,</p>
+</li>
+<li>
+<p>important tool interactions,</p>
+</li>
+<li>
+<p>errors and recoveries,</p>
+</li>
+<li>
+<p>user-visible outcomes.</p>
+</li>
+</ul>
+<p>Episodic memory consolidation pipeline</p>
+<ol>
+<li>
+<p>Event segmentation: segmenting working memory into discrete events.</p>
+<p>Conversation → multiple atomic events:</p>
+<ul>
+<li>
+<p>&ldquo;User requested flight booking&rdquo;</p>
+</li>
+<li>
+<p>&ldquo;Browser automation executed&rdquo;</p>
+</li>
+<li>
+<p>&ldquo;Flight booked successfully&rdquo;</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Event summarization: each event is summarised into a concise description suitable for retrieval.</p>
+<p>Example: &ldquo;2026-01-22 10:30 — Booked a flight to Paris using browser automation.&rdquo;</p>
+</li>
+<li>
+<p>Temporal anchoring: the event is assigned with <code>start_time</code>, <code>end_time</code>.</p>
+</li>
+<li>
+<p>Metadata extraction: extract entities (people, place, objects), tags, importance signals. This can become filterable fields in episodic memory</p>
+</li>
+<li>
+<p>Storage and indexing: The summarized event is written to hot episodic memory. A semantic embedding is generated and indexed. The canonical metadata record is created.</p>
+</li>
+</ol>
+<p>At this point, an episodic memory is created, and can be retrieved via semantic or temporal queries.</p>
+<h4 id="example-how-clawdbot-create-the-memory-from-working-memory">Example: how Clawdbot create the memory from working memory?</h4>
+<p>In Clawdbot, you can directly edit the Markdown files to create the memory. Besides this, Clawdbot supports automatic memory flush.</p>
+<p>This is a lossy process. Important information may be summarised away and potentially lost. To counter that, Clawbot uses the pre-compaction memory flush.</p>
+<pre tabindex="0"><code>┌─────────────────────────────────────────────────────────────┐
+│  Context Approaching Limit                                  │
+│                                                             │
+│  ████████████████████████████░░░░░░░░  75% of context       │
+│                              ↑                              │
+│                    Soft threshold crossed                   │
+│                    (contextWindow - reserve - softThreshold)│
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│  Silent Memory Flush Turn                                   │
+│                                                             │
+│  System: &quot;Pre-compaction memory flush. Store durable        │
+│           memories now (use memory/YYYY-MM-DD.md).          │
+│           If nothing to store, reply with NO_REPLY.&quot;        │
+│                                                             │
+│  Agent: reviews conversation for important info           │
+│         writes key decisions/facts to memory files        │
+│         -&gt; NO_REPLY (user sees nothing)                     │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│  Compaction Proceeds Safely                                 │
+│                                                             │
+│  Important information is now on disk                       │
+│  Compaction can proceed without losing knowledge            │
+└─────────────────────────────────────────────────────────────┘
+</code></pre><h3 id="how-semantic-memory-is-created">How semantic memory is created?</h3>
+<p>Semantic memory can be created either by user created files or consolidated from working memory and episodic memory.</p>
+<p>User can specify their preferences, rules in a file, indicating their habits.</p>
+<p>Semantic consolidation is triggered when:</p>
+<ul>
+<li>similar episodic events recur,</li>
+<li>the agent detects a stable pattern,</li>
+<li>the user confirms or corrects behavior,</li>
+<li>a decision has long-term implications.</li>
+</ul>
+<p>Example: Multiple episodic events show the user prefers morning flights.</p>
+<p>Semantic memory consolidation pipeline:</p>
+<ol>
+<li>Pattern detection: The system analyzes episodic memory over time: clustering similar events, detecting repeated choices or outcomes.</li>
+<li>Hypothesis generation: A candidate semantic statement is proposed. At this stage, the statement is tentative.</li>
+<li>Validation and confidence assignment: Confidence is adjusted based on: frequency, consistency, explicit user confirmation.</li>
+<li>Graph integration: the validated semantic memory is inserted into the semantic memory graph.</li>
+<li>Versioning and stability</li>
+</ol>
+<h3 id="what-is-the-relation-of-perceptual-memory-with-other-memories">What is the relation of perceptual memory with other memories?</h3>
+<p>Perceptual memory provides raw evidence that supports or contradicts other memories.</p>
+<p>Perceptual data contributes to episodic memory by enriching event descriptions and providing objective measurements.</p>
+<p>For example, from raw sensor data, we can derive user slept 4.2 hours last night. This can be merged to episodic memory</p>
+<p>Semantic memory may emerge from aggregated perceptual patterns.</p>
+<p>For Example, weeks of sleep data + repeated fatigue episodes -&gt; semantic rule.</p>
+<h3 id="an-simple-example">An simple example</h3>
+<p>Working memory</p>
+<p><code>User books multiple flights over time, repeatedly choosing morning departures.</code></p>
+<p>Episodic memory</p>
+<p><code>“2026-01-22 — Booked morning flight to Paris”</code></p>
+<p><code>“2026-02-10 — Booked morning flight to Berlin”</code></p>
+<p>Semantic memory</p>
+<p><code>Preference: “User prefers morning flights” (confidence 0.85)</code></p>
+<p>Perceptual memory</p>
+<p><code>Not involved in this example.</code></p>
+<h2 id="how-different-memory-is-retrieved">How different memory is retrieved?</h2>
+<p>Memory retrieval is not a single database query. Instead, it is a multi-stage control process that integrates: query understanding, memory-type routing, confidence evaluation, archive escalation, and controlled rehydration</p>
+<p>The detailed process are listed below:</p>
+<ol>
+<li>
+<p>Build a retrieve plan according to the query, task type, explicit or implicit time references, required entities or concepts.</p>
+</li>
+<li>
+<p>Based on this the system constructs a retrieval plan that specifies:</p>
+<ul>
+<li>which memory types to query</li>
+<li>preferred retrieval order</li>
+<li>time ranges to apply</li>
+<li>escalation thresholds and limits</li>
+</ul>
+</li>
+<li>
+<p>Hot memory retrieval</p>
+<ul>
+<li>First retrieval the working memory</li>
+<li>For episodic memory, the system embeds the query, performs vector similarity search against the hot episodic index, filters by owner, time range, and memory tier. The resulting candidates are reranked using semantic similarity, recency decay, importance and value scores.</li>
+<li>For semantic memory, identify seed concepts, and traverse the semantic graph. The output is formatted as subgraph containing relevant concepts, rules, and their relationships</li>
+<li>For Perceptual memory, the system queries hot perceptual stores for recent aggregates, detected anomalies, metrics relevant to the query.</li>
+</ul>
+</li>
+<li>
+<p>Confidence evaluation</p>
+<ul>
+<li>Confidence can be assessed across several dimensions:
+<ul>
+<li>semantic relevance</li>
+<li>coverage</li>
+<li>temporal fit</li>
+<li>authority: reliability of semantic knowledge</li>
+<li>consistency: agreement across memory type</li>
+</ul>
+</li>
+<li>These metrics are combined into an overall confidence score. If the score exceeds a pre-defined threshold, retrieval stops and the system proceeds to context assembly.</li>
+</ul>
+</li>
+<li>
+<p>Escalation to archive indices</p>
+<ul>
+<li>If confidence is insufficient, the system escalates to archive indices.</li>
+<li>Importantly, escalation does not query cold storage directly. Instead, it searches lightweight archive indices that represent archived memory.</li>
+<li>The output of this stage is a list of candidate pointers into cold storage.</li>
+</ul>
+</li>
+<li>
+<p>Cold memory rehydration</p>
+<ul>
+<li>Once archive candidates are identified, the system selectively fetches cold memory using their archive pointers. Two rehydration strategies can be applied
+<ul>
+<li>Lazy hydration: Cold memory is loaded only for the current response and is not reinserted into hot storage.</li>
+<li>Warm restoration: If a cold memory is accessed frequently or deemed high value, it is restored to hot storage and reindexed.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Merging and Re-evaluating Results</p>
+<ul>
+<li>Hot and cold results are merged and reranked according to the retrieval plan. Confidence evaluation is re-run on the merged result set. If confidence remains low, the system acknowledges uncertainty, or request clarification.</li>
+</ul>
+</li>
+<li>
+<p>Context packaging</p>
+<ul>
+<li>Before passing retrieved memory to the language model, the system formats it into compact, structured blocks, including:
+<ul>
+<li>working context</li>
+<li>semantic facts and rules</li>
+<li>episodic evidence</li>
+<li>perceptual summaries</li>
+</ul>
+</li>
+<li>Each block is truncated or summarised to fit token budgets, annotated with timestamps and confidence cues, ordered by relevance.</li>
+</ul>
+</li>
+</ol>
+<p>Diagram to show this process</p>
+<pre tabindex="0"><code>┌──────────────────────────────────────────────────────────┐
+│                        USER QUERY                        │
+└──────────────────────────────────────────────────────────┘
+                             │
+                             ▼
+┌──────────────────────────────────────────────────────────┐
+│          QUERY ANALYSIS &amp; RETRIEVAL PLANNING             │
+│  - intent detection                                      │
+│  - entity extraction                                     │
+│  - time range inference                                  │
+│  - memory type routing                                   │
+└──────────────────────────────────────────────────────────┘
+                             │
+                             ▼
+┌──────────────────────────────────────────────────────────┐
+│                    HOT MEMORY RETRIEVAL                  │
+│                                                          │
+│  ┌──────────────┐   ┌──────────────┐   ┌─────────────┐   │
+│  │ Working      │   │ Episodic     │   │ Semantic    │   │
+│  │ Memory       │   │ (Vector DB)  │   │ (Graph DB)  │   │
+│  │ (Session)    │   │              │   │             │   │
+│  └──────────────┘   └──────────────┘   └─────────────┘   │
+│                                                          │
+│                    ┌──────────────┐                      │
+│                    │ Perceptual   │                      │
+│                    │ (Features)   │                      │
+│                    └──────────────┘                      │
+└──────────────────────────────────────────────────────────┘
+                             │
+                             ▼
+┌──────────────────────────────────────────────────────────┐
+│                  CONFIDENCE EVALUATION                   │
+│                                                          │
+│  - semantic relevance                                    │
+│  - coverage (entities / aspects)                         │
+│  - temporal fit                                          │
+│  - authority &amp; stability                                 │
+│  - cross-memory consistency                              │
+│                                                          │
+│  confidence ≥ threshold ?                                │
+└──────────────────────────────────────────────────────────┘
+               │ YES                              │ NO
+               ▼                                  ▼
+┌──────────────────────────────┐   ┌───────────────────────────────┐
+│ CONTEXT PACKAGING            │   │    ARCHIVE INDEX RETRIEVAL    │
+│ (Hot memory only)            │   │                               │
+│                              │   │  ┌──────────────┐             │
+│  - compress                  │   │  │ Episodic     │             │
+│  - structure                 │   │  │ Archive IDX │              │
+│  - order by relevance        │   │  └──────────────┘             │
+│                              │   │                               │
+│                              │   │  ┌──────────────┐             │
+│                              │   │  │ Semantic     │             │
+│                              │   │  │ Archive IDX │              │
+│                              │   │  └──────────────┘             │
+│                              │   │                               │
+│                              │   │  ┌──────────────┐             │
+│                              │   │  │ Perceptual   │             │
+│                              │   │  │ Archive IDX │              │
+│                              │   │  └──────────────┘             │
+└──────────────────────────────┘   └───────────────────────────────┘
+               │                                  │
+               ▼                                  ▼
+┌──────────────────────────────┐   ┌────────────────────────────────┐
+│   LLM CONTEXT                │   │      COLD MEMORY FETCH         │
+│   (Ready for inference)      │   │                                │
+└──────────────────────────────┘   │  ┌──────────────────────────┐  │
+                                   │  │ Cold Object Storage      │  │
+                                   |  │ (JSON / Parquet / Media) │  │
+                                   │  └──────────────────────────┘  │
+                                   └────────────────────────────────┘
+                                                     │
+                                                     ▼
+                                    ┌────────────────────────────────┐
+                                    │  REHYDRATION &amp; MERGE           │
+                                    │                                │
+                                    │  - lazy hydrate                │
+                                    │  - optional warm restore       │
+                                    │  - rerank merged results       │
+                                    └────────────────────────────────┘
+                                                     │
+                                                     ▼
+                                    ┌────────────────────────────────┐
+                                    │  CONFIDENCE RE-EVALUATION      │
+                                    │                                │
+                                    │  sufficient?                   │
+                                    └────────────────────────────────┘
+                                             │ YES            │ NO
+                                             ▼                ▼
+                               ┌──────────────────────┐  ┌───────────────────┐
+                               │ CONTEXT PACKAGING    │  │ EXPLICIT          │
+                               │ (Hot + Cold memory)  │  │ UNCERTAINTY /     │
+                               │                      │  │ CLARIFICATION     │
+                               └──────────────────────┘  └───────────────────┘
+                                             │
+                                             ▼
+                               ┌──────────────────────┐
+                               │   LLM INFERENCE      │
+                               └──────────────────────┘
+
+</code></pre><h3 id="example-how-the-memory-in-clawdbot-get-indexed">Example: how the memory in Clawdbot get indexed?</h3>
+<p>When you save a memory file, here’s what happens behind the scenes:</p>
+<pre tabindex="0"><code>┌─────────────────────────────────────────────────────────────┐
+│  1. File Saved                                              │
+│     ~/clawd/memory/2026-01-26.md                            │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│  2. File Watcher Detects Change                             │
+│     Chokidar monitors MEMORY.md + memory/**/*.md            │
+│     Debounced 1.5 seconds to batch rapid writes             │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│  3. Chunking                                                │
+│     Split into ~400 token chunks with 80 token overlap      │
+│                                                             │
+│     ┌────────────────┐                                      │
+│     │ Chunk 1        │                                      │
+│     │ Lines 1-15     │──────┐                               │
+│     └────────────────┘      │                               │
+│     ┌────────────────┐      │ (80 token overlap)            │
+│     │ Chunk 2        │◄─────┘                               │
+│     │ Lines 12-28    │──────┐                               │
+│     └────────────────┘      │                               │
+│     ┌────────────────┐      │                               │
+│     │ Chunk 3        │◄─────┘                               │
+│     │ Lines 25-40    │                                      │
+│     └────────────────┘                                      │
+│                                                             │
+│     Why 400/80? Balances semantic coherence vs granularity. │
+│     Overlap ensures facts spanning chunk boundaries are     │
+│     captured in both. Both values are configurable.         │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│  4. Embedding                                               │
+│     Each chunk -&gt; embedding provider -&gt; vector              │
+│                                                             │
+│     &quot;Discussed REST vs GraphQL&quot; -&gt;                          │
+│         OpenAI/Gemini/Local -&gt;                              │
+│         [0.12, -0.34, 0.56, ...]  (1536 dimensions)         │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│  5. Storage                                                 │
+│     ~/.clawdbot/memory/&lt;agentId&gt;.sqlite                     │
+│                                                             │
+│     Tables:                                                 │
+│     - chunks (id, path, start_line, end_line, text, hash)   │
+│     - chunks_vec (id, embedding)      -&gt; sqlite-vec         │
+│     - chunks_fts (text)               -&gt; FTS5 full-text     │
+│     - embedding_cache (hash, vector)  -&gt; avoid re-embedding │
+└─────────────────────────────────────────────────────────────┘
+</code></pre><p>sqlite-vec is a SQLite extension that enables vector similarity search directly in SQLite, no external vector database required.</p>
+<p>FTS5 is SQLite’s built-in full-text search engine that powers the BM25 keyword matching. Together, they allow Clawdbot to run hybrid search (semantic + keyword) from a single lightweight database file.</p>
+<p>When you search memory, Clawdbot runs two search strategies in parallel. Vector search (semantic) finds content that means the same thing and BM25 search (keyword) finds content with exact tokens.</p>
+<p>The results are combined with weighted scoring:</p>
+<p>$$finalScore = (0.7 * vectorScore) + (0.3 * textScore)
+$$</p>
+<h2 id="summary-tldr">Summary (TL;DR)</h2>
+<p>This article presents a systematic memory architecture for long-running agent systems, designed to address the fundamental mismatch between bounded model context and unbounded experiential memory.</p>
+<p>We distinguish context-short-lived, costly, and limited, from memory, which is persistent, unbounded, and searchable. To manage memory at scale, we organize it into four functional types:</p>
+<ul>
+<li>
+<p>Working memory for immediate reasoning state</p>
+</li>
+<li>
+<p>Episodic memory for time-stamped experiences</p>
+</li>
+<li>
+<p>Semantic memory for abstracted knowledge, rules, and preferences</p>
+</li>
+<li>
+<p>Perceptual memory for raw sensory data and derived features</p>
+</li>
+</ul>
+<p>Each memory type is further divided into hot and cold tiers. Hot memory contains high-utility information optimized for low-latency retrieval, while cold memory preserves long-term knowledge at low cost. An archive index bridges the two, enabling semantic discovery of cold memory without loading it into context.</p>
+<p>Retrieval follows a confidence-gated, tiered pipeline:</p>
+<ol>
+<li>
+<p>Retrieve from hot memory first</p>
+</li>
+<li>
+<p>Evaluate confidence across relevance, coverage, time, authority, and consistency</p>
+</li>
+<li>
+<p>Escalate to archive indices only when needed</p>
+</li>
+<li>
+<p>Rehydrate cold memory selectively and safely</p>
+</li>
+</ol>
+<p>Memory creation is governed by consolidation pipelines:</p>
+<ul>
+<li>
+<p>Working -&gt; Episodic (events and outcomes)</p>
+</li>
+<li>
+<p>Episodic -&gt; Semantic (patterns and generalizations)</p>
+</li>
+<li>
+<p>Perceptual -&gt; Episodic/Semantic (evidence-driven summaries and rules)</p>
+</li>
+</ul>
+<p>This architecture ensures agents can operate indefinitely, maintaining coherence, efficiency, and explainability while avoiding context overflow, hallucination, and uncontrolled memory growth.</p>
+<p>The design is intentionally modular and can be packaged as a reusable memory middleware for agent frameworks, offering measurable benefits in retrieval accuracy, cost efficiency, and long-term reliability.</p>
+
+          </div>
+          
+
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/llms/">LLMs</a>
+  
+  <a class="badge badge-light" href="/tag/ai/">AI</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://jia-wei-zheng.github.io/post/agentmemory/index/&amp;text=Memory%20system%20design%20for%20long-running%20agent%20systems" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://jia-wei-zheng.github.io/post/agentmemory/index/&amp;t=Memory%20system%20design%20for%20long-running%20agent%20systems" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Memory%20system%20design%20for%20long-running%20agent%20systems&amp;body=https://jia-wei-zheng.github.io/post/agentmemory/index/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://jia-wei-zheng.github.io/post/agentmemory/index/&amp;title=Memory%20system%20design%20for%20long-running%20agent%20systems" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Memory%20system%20design%20for%20long-running%20agent%20systems%20https://jia-wei-zheng.github.io/post/agentmemory/index/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://jia-wei-zheng.github.io/post/agentmemory/index/&amp;title=Memory%20system%20design%20for%20long-running%20agent%20systems" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="https://jia-wei-zheng.github.io/"><img class="avatar mr-3 avatar-circle" src="/authors/admin/avatar_hu8231e93a855635ec46c5824be8aa99c6_167293_270x270_fill_q75_lanczos_center.jpg" alt="Jiawei Zheng"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://jia-wei-zheng.github.io/">Jiawei Zheng</a></h5>
+      <h6 class="card-subtitle">Postdoctoral Research Fellow</h6>
+      <p class="card-text">Jiawei Zheng&rsquo;s research interests include AI, Data Science, Blockchain, Process Mining, and IoT.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:jw.zhengai@gmail.com" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.co.uk/citations?user=gc_RiN8AAAAJ" target="_blank" rel="noopener">
+        <i class="fas fa-graduation-cap"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/jia-wei-zheng" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/jiawei2heng/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/JiaweiZheng_" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/project/llm-dt/">LLM-powered Digital Innovation and Transformation for Enterprises</a></li>
+      
+      <li><a href="/project/acrc/">Advanced Care &amp; Research Center (ACRC)</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+
+        </div>
+        </article>
+    </main>
+  </div>
+</div>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      
+<footer class="site-footer">
+
+
+  
+
+  <p class="powered-by">
+    © 2026 Jiawei Zheng
+
+  </p>
+  <p class="powered-by">
+    Published with  <i class="fas fa-solid fa-heart"></i> Xuerui Yi 
+  </p>
+
+  
+  
+
+
+
+
+
+
+  
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+        
+        
+      
+      
+      
+      
+      Published with <!-- raw HTML omitted -->Hugo Blox Builder<!-- raw HTML omitted --> — the free, <!-- raw HTML omitted -->open source<!-- raw HTML omitted --> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+
+      
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      
+
+      
+      
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+      
+      <script id="search-hit-fuse-template" type="text/x-template">
+        <div class="search-hit" id="summary-{{key}}">
+          <div class="search-hit-content">
+            <div class="search-hit-name">
+              <a href="{{relpermalink}}">{{title}}</a>
+              <div class="article-metadata search-hit-type">{{type}}</div>
+              <p class="search-hit-description">{{snippet}}</p>
+            </div>
+          </div>
+        </div>
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    <script src="/js/bootstrap.bundle.min.8b7df62fd2da18ce73e29c13cc0a6198.js"></script>
+
+    
+    
+      
+      
+      
+      
+      
+      
+      
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    <script src="/en/js/wowchemy.min.cf8ca859a9b74f8b1cd804621b13e5f1.js"></script>
+
+    
+
+
+
+
+
+
+</body>
+</html>
